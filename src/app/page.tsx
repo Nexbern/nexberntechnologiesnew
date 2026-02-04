@@ -14,7 +14,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/effect-fade';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('step1');
@@ -72,6 +74,9 @@ export default function Home() {
     const maxRetries = 20;
 
     const initAnimations = () => {
+      // Re-register plugin right before use to ensure it's active in this scope
+      gsap.registerPlugin(ScrollTrigger);
+
       // Check if SplitText is available from app.min.js
       if ((window as any).SplitText) {
         const SplitText = (window as any).SplitText;
