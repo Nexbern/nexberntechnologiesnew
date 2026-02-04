@@ -92,10 +92,10 @@ export default function Portfolio() {
                 <div className="breadcumb-wrapper" style={{ backgroundImage: 'url(/assets/img/bg/breadcumb-bg.jpg)' }}>
                     <div className="container">
                         <div className="breadcumb-content">
-                            <h1 className="breadcumb-title">Our Portfolio</h1>
+                            <h1 className="breadcumb-title">Our Projects</h1>
                             <ul className="breadcumb-menu">
                                 <li><Link href="/">Home</Link></li>
-                                <li>Portfolio</li>
+                                <li>Projects</li>
                             </ul>
                         </div>
                     </div>
