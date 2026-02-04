@@ -113,7 +113,7 @@ export default function Portfolio() {
                                     Our Work
                                     <span className="squre-shape right ms-3"></span>
                                 </span>
-                                <h2 className="sec-title">Explore Our Portfolio</h2>
+                                <h2 className="sec-title">Explore Our Projects</h2>
                                 <p className="sec-text">
                                     Discover the websites we've built for our clients. Click on any project to see it in action across different devices.
                                 </p>
