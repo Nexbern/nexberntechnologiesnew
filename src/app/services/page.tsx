@@ -111,13 +111,13 @@ export default function Services() {
     }, []);
 
     const services = [
-        { title: 'Mobile App Development', img: 'sv-1.jpg', slug: 'mobile-app-development' },
-        { title: 'Web Development', img: 'sv-2.jpg', slug: 'web-development' },
-        { title: 'Cloud Consulting', img: 'sv-3.jpg', slug: 'cloud-consulting' },
-        { title: 'AI & Machine Learning', img: 'sv-4.jpg', slug: 'ai-machine-learning' },
-        { title: 'SEO & Digital Marketing', img: 'sv-5.jpg', slug: 'seo-digital-marketing' },
+        { title: 'Mobile App Development', img: 'sv-1.jpg', slug: 'mobile-app-development', description: 'Creating user-centric mobile applications for iOS and Android that drive engagement and business growth.' },
+        { title: 'Web Development', img: 'sv-2.jpg', slug: 'web-development', description: 'Creating responsive, user-friendly websites and web applications tailored to your business needs using modern technologies.' },
+        { title: 'Cloud Consulting', img: 'sv-3.jpg', slug: 'cloud-consulting', description: 'Helping businesses migrate to cloud platforms, optimize cloud infrastructure, and implement cloud-based solutions.' },
+        { title: 'AI & Machine Learning', img: 'sv-4.jpg', slug: 'ai-machine-learning', description: 'Implementing AI and ML solutions to automate processes, gain insights from data, and improve decision-making.' },
+        { title: 'SEO & Digital Marketing', img: 'sv-5.jpg', slug: 'seo-digital-marketing', description: 'Enhancing your online visibility and driving organic traffic through strategic SEO and digital marketing campaigns.' },
         // { title: 'Cloud Solutions', img: 'sv-6.jpg', slug: 'cloud-solutions' },
-        { title: 'IT Consulting', img: 'sv-7.jpg', slug: 'it-consulting' },
+        { title: 'IT Consulting', img: 'sv-7.jpg', slug: 'it-consulting', description: 'Assessing current IT infrastructure and aligning it with business goals. Developing a roadmap for technology adoption.' },
     ];
 
     return (
@@ -168,7 +168,7 @@ export default function Services() {
                                                 <Link href={`/service-details/${service.slug}`}>{service.title}</Link>
                                             </h3>
                                             <p className="service-box_text">
-                                                Assessing current IT infrastructure and aligning it with business goals. Developing a roadmap.
+                                                {service.description}
                                             </p>
                                             <Link className="th-btn style4" href={`/service-details/${service.slug}`}>
                                                 Read More <i className="fa-light fa-arrow-right-long"></i>
@@ -321,7 +321,7 @@ export default function Services() {
             </div> */}
 
             {/* Brand Section */}
-            <div className="brand-sec space-bottom">
+            {/* <div className="brand-sec space-bottom">
                 <div className="container th-container4">
                     <p className="sec-note text-center mb-60">Trusted by 1600+ of the world's most popular companies</p>
                     <Swiper
@@ -350,7 +350,7 @@ export default function Services() {
                         ))}
                     </Swiper>
                 </div>
-            </div>
+            </div> */}
 
             <Footer />
         </>

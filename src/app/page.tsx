@@ -20,6 +20,7 @@ if (typeof window !== 'undefined') {
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('step1');
+  const [activeView, setActiveView] = useState('desktop');
 
   const caseStudyTabs = [
     { id: 'step1', label: 'Development' },
@@ -485,25 +486,21 @@ export default function Home() {
                   className="sub-title style1 text-anime-style-2">About Us Our Company</span>
                   <h2 className="sec-title mb-20 heading text-anime-style-3">Solutions That Evolve with Your
                     Business</h2>
-                  <p className="sec-text mb-30 wow fadeInUp" data-wow-delay=".1s">IT solutions refer to a broad
-                    range of services and technologies designed to address specific business needs,
-                    streamline operations, and drive growth. These solutions encompass hardware.</p>
+                  <p className="sec-text mb-30 wow fadeInUp" data-wow-delay=".1s">At Nexbern Technologies, we deliver flexible and scalable IT solutions designed to grow alongside your business. Our services combine technology, strategy, and innovation to address unique business challenges, streamline operations, and drive sustainable growth across industries.</p>
                 </div>
                 <div className="about-item-wrap">
                   <div className="about-item wow fadeInUp" data-wow-delay=".3s">
                     <div className="about-item_img"><img src="/assets/img/icon/map3.svg" alt="" /></div>
                     <div className="about-item_centent">
                       <h5 className="box-title">Manage Tech Services</h5>
-                      <p className="about-item_text">There are many variations of passages of available but
-                        the majority.</p>
+                      <p className="about-item_text">We provide proactive and reliable managed technology services that ensure your systems remain secure.</p>
                     </div>
                   </div>
                   <div className="about-item wow fadeInUp" data-wow-delay=".5s">
                     <div className="about-item_img"><img src="/assets/img/icon/guide.svg" alt="" /></div>
                     <div className="about-item_centent">
                       <h5 className="box-title">Internal Networking</h5>
-                      <p className="about-item_text">There are many variations of passages of available but
-                        the majority.</p>
+                      <p className="about-item_text">Our internal networking solutions enhance connectivity, security, and collaboration within your organization.</p>
                     </div>
                   </div>
                 </div>
@@ -524,7 +521,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="case-area position-relative overflow-hidden space">
+      {/* <div className="case-area position-relative overflow-hidden space">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-5">
@@ -591,7 +588,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Services Section */}
       <section className="position-relative bg-top-center overflow-hidden space" id="service-sec" style={{ backgroundImage: 'url(/assets/img/bg/service_bg_1.jpg)' }}>
         <div className="container">
@@ -600,58 +597,59 @@ export default function Home() {
               <div className="title-area service-title-box text-center">
                 <span className="sub-title mb-15 text-anime-style-2">What We're Offering</span>
                 <h2 className="sec-title text-anime-style-3">Dealing in all professional IT services</h2>
-                <p className="sec-text mb-50">
+                <p className="sec-text mb-50 wow fadeInUp" data-wow-delay=".3s">
                   IT solutions refer to a broad range of services and technologies designed to address<br />specific business needs, streamline operations, and drive growth.
                 </p>
               </div>
             </div>
           </div>
-          <div className="slider-area slider-drag-wrap">
-            <Swiper
-              modules={[Pagination, Autoplay, Navigation]}
-              loop={true}
-              spaceBetween={30}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              breakpoints={{
-                0: { slidesPerView: 1 },
-                576: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                992: { slidesPerView: 2 },
-                1200: { slidesPerView: 3 },
-                1300: { slidesPerView: 4 }
-              }}
-              className="th-slider has-shadow"
-            >
-              {[
-                { title: 'IT Strategy & Planning', img: 'service_img_1.jpg' },
-                { title: 'Web Development', img: 'service_img_2.jpg' },
-                { title: 'Cloud Consulting', img: 'service_img_3.jpg' },
-                { title: 'Machine Learning', img: 'service_img_4.jpg' },
-                { title: 'House Renovation', img: 'service_img_2.jpg' },
-                { title: 'Material Supply', img: 'service_img_1.jpg' }
-              ].map((service, index) => (
-                <SwiperSlide key={index}>
-                  <div className="service-box service-style-1 gsap-cursor">
-                    <div className="service-img">
-                      <Link href="/service-details">
-                        <img src={`/assets/img/service/${service.img}`} alt="" />
-                      </Link>
+          <div className="service-area">
+            <div className="slider-area text-center">
+              <Swiper
+                modules={[Autoplay, Pagination, Navigation]}
+                spaceBetween={30}
+                slidesPerView={3}
+                loop={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                pagination={{ clickable: true }}
+                breakpoints={{
+                  0: { slidesPerView: 1 },
+                  768: { slidesPerView: 2 },
+                  1200: { slidesPerView: 3 },
+                }}
+                className="serviceSlider"
+              >
+                {[
+                  { title: 'Mobile App Development', img: 'sv-1.jpg', slug: 'mobile-app-development', description: 'Creating user-centric mobile applications for iOS and Android that drive engagement and business growth.' },
+                  { title: 'Web Development', img: 'sv-2.jpg', slug: 'web-development', description: 'Creating responsive, user-friendly websites and web applications tailored to your business needs using modern technologies.' },
+                  { title: 'Cloud Consulting', img: 'sv-3.jpg', slug: 'cloud-consulting', description: 'Helping businesses migrate to cloud platforms, optimize cloud infrastructure, and implement cloud-based solutions.' },
+                  { title: 'AI & Machine Learning', img: 'sv-4.jpg', slug: 'ai-machine-learning', description: 'Implementing AI and ML solutions to automate processes, gain insights from data, and improve decision-making.' },
+                  { title: 'SEO & Digital Marketing', img: 'sv-5.jpg', slug: 'seo-digital-marketing', description: 'Enhancing your online visibility and driving organic traffic through strategic SEO and digital marketing campaigns.' },
+                  { title: 'IT Consulting', img: 'sv-7.jpg', slug: 'it-consulting', description: 'Assessing current IT infrastructure and aligning it with business goals. Developing a roadmap for technology adoption.' },
+                ].map((service, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="service-box service-style-1">
+                      <div className="service-img">
+                        <Link href={`/service-details/${service.slug}`}>
+                          <img src={`/assets/img/service/${service.img}`} alt={service.title} />
+                        </Link>
+                      </div>
+                      <div className="service-content">
+                        <h3 className="box-title">
+                          <Link href={`/service-details/${service.slug}`}>{service.title}</Link>
+                        </h3>
+                        <p className="service-box_text">
+                          {service.description}
+                        </p>
+                        <Link className="th-btn style4" href={`/service-details/${service.slug}`}>
+                          Read More <i className="fa-light fa-arrow-right-long"></i>
+                        </Link>
+                      </div>
                     </div>
-                    <div className="service-content">
-                      <h3 className="box-title">
-                        <Link href="/service-details">{service.title}</Link>
-                      </h3>
-                      <p className="service-box_text">
-                        Assessing current IT infrastructure and aligning it with business goals. Developing a roadmap.
-                      </p>
-                      <Link className="th-btn style4" href="/service-details">
-                        Read More <i className="fa-light fa-arrow-right-long"></i>
-                      </Link>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         </div>
       </section>
@@ -663,88 +661,129 @@ export default function Home() {
             <span className="sub-title mb-15 text-anime-style-2">Our Gallery</span>
             <h2 className="sec-title text-anime-style-3">Our Recent Project Gallery</h2>
           </div>
-          <div className="row gy-10 gx-10 justify-content-center align-items-center">
-            <div className="col-md-6 col-lg-2">
-              <div className="gallery-card">
-                <div className="box-img global-img">
-                  <a href="/assets/img/gallery/gallery_1_1.jpg" className="popup-image">
-                    <div className="icon-btn"><i className="fal fa-magnifying-glass-plus"></i></div>
-                    <img src="/assets/img/gallery/gallery_1_1.jpg" alt="gallery image" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-2">
-              <div className="gallery-card">
-                <div className="box-img global-img">
-                  <a href="/assets/img/gallery/gallery_1_2.jpg" className="popup-image">
-                    <div className="icon-btn"><i className="fal fa-magnifying-glass-plus"></i></div>
-                    <img src="/assets/img/gallery/gallery_1_2.jpg" alt="gallery image" />
-                  </a>
-                </div>
-              </div>
-              <div className="gallery-card">
-                <div className="box-img global-img">
-                  <a href="/assets/img/gallery/gallery_1_3.jpg" className="popup-image">
-                    <div className="icon-btn"><i className="fal fa-magnifying-glass-plus"></i></div>
-                    <img src="/assets/img/gallery/gallery_1_3.jpg" alt="gallery image" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-2">
-              <div className="gallery-card">
-                <div className="box-img global-img">
-                  <a href="/assets/img/gallery/gallery_1_4.jpg" className="popup-image">
-                    <div className="icon-btn"><i className="fal fa-magnifying-glass-plus"></i></div>
-                    <img src="/assets/img/gallery/gallery_1_4.jpg" alt="gallery image" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-2">
-              <div className="gallery-card">
-                <div className="box-img global-img">
-                  <a href="/assets/img/gallery/gallery_1_5.jpg" className="popup-image">
-                    <div className="icon-btn"><i className="fal fa-magnifying-glass-plus"></i></div>
-                    <img src="/assets/img/gallery/gallery_1_5.jpg" alt="gallery image" />
-                  </a>
-                </div>
-              </div>
-              <div className="gallery-card">
-                <div className="box-img global-img">
-                  <a href="/assets/img/gallery/gallery_1_6.jpg" className="popup-image">
-                    <div className="icon-btn"><i className="fal fa-magnifying-glass-plus"></i></div>
-                    <img src="/assets/img/gallery/gallery_1_6.jpg" alt="gallery image" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-2">
-              <div className="gallery-card">
-                <div className="box-img global-img">
-                  <a href="/assets/img/gallery/gallery_1_7.jpg" className="popup-image">
-                    <div className="icon-btn"><i className="fal fa-magnifying-glass-plus"></i></div>
-                    <img src="/assets/img/gallery/gallery_1_7.jpg" alt="gallery image" />
-                  </a>
-                </div>
+          {/* Toggle Controls */}
+          <div className="row justify-content-center mb-50">
+            <div className="col-auto">
+              <div className="nav nav-tabs case-tabs" role="tablist" style={{ border: 'none', gap: '15px' }}>
+                <button
+                  onClick={() => setActiveView('desktop')}
+                  className={`nav-link th-btn ${activeView === 'desktop' ? 'active' : ''}`}
+                  style={{ minWidth: '160px', borderRadius: '50px', cursor: 'pointer' }}
+                >
+                  <i className="fa-light fa-desktop me-2"></i> Desktop View
+                </button>
+                <button
+                  onClick={() => setActiveView('mobile')}
+                  className={`nav-link th-btn ${activeView === 'mobile' ? 'active' : ''}`}
+                  style={{ minWidth: '160px', borderRadius: '50px', cursor: 'pointer' }}
+                >
+                  <i className="fa-light fa-mobile me-2"></i> Mobile View
+                </button>
               </div>
             </div>
           </div>
-          <div className="shape-mockup th-line-shape d-none d-xl-block" data-top="-18%" data-left="0">
-            <span>
-              <svg width="3200" height="860" viewBox="0 0 3200 860" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path className="line-1"
-                  d="M2138 14.0506C2095.27 -17.4415 2002.06 10.9842 1886.26 120.726C1741.5 257.904 1351.09 392.927 1300.98 262.785C1236.52 95.3792 1538.14 78.636 1447.87 346.052C1357.6 613.468 810.026 408.273 376.356 511.519C46.7827 589.983 -27.4648 825.017 -14.6451 859"
-                  stroke="currentColor" strokeWidth="4" />
-              </svg>
-            </span>
-          </div>
-          <div className="shape-mockup movingX d-none d-xl-block" data-top="11%" data-left="-3%">
-            <img className="gmovingX" src="/assets/img/shape/g-shape-1.png" alt="shape" />
-          </div>
-          <div className="shape-mockup jump d-none d-xl-block" data-bottom="0" data-right="-3%">
-            <img className="gmovingX" src="/assets/img/shape/ab-1-shape-2.png" alt="shape" />
+
+          {/* Device Mockup Display */}
+          <div className="device-mockup-Container" style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '600px',
+            position: 'relative',
+            perspective: '1000px',
+            paddingBottom: '50px'
+          }}>
+            {activeView === 'desktop' ? (
+              <div className="laptop-frame wow fadeInUp" style={{
+                width: '100%',
+                maxWidth: '900px',
+                background: 'linear-gradient(to bottom, #2a2a2a, #1a1a1a)',
+                borderRadius: '20px',
+                padding: '15px 15px 0 15px',
+                boxShadow: '0 25px 60px rgba(0,0,0,0.3)',
+                position: 'relative',
+                transition: 'all 0.5s ease'
+              }}>
+                {/* Screen */}
+                <div style={{
+                  background: '#000',
+                  borderRadius: '10px 10px 0 0',
+                  overflow: 'hidden',
+                  aspectRatio: '16/9',
+                  position: 'relative',
+                  border: '1px solid #333'
+                }}>
+                  <img src="/assets/img/desktop-preview.png" alt="Desktop Project Preview" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                {/* Base */}
+                <div style={{
+                  height: '25px',
+                  background: 'linear-gradient(to bottom, #333, #222)',
+                  borderRadius: '0 0 20px 20px',
+                  marginTop: '-1px',
+                  position: 'relative',
+                  boxShadow: 'inset 0 2px 5px rgba(255,255,255,0.05)'
+                }}>
+                  <div style={{
+                    width: '120px',
+                    height: '10px',
+                    background: '#151515',
+                    borderRadius: '0 0 12px 12px',
+                    position: 'absolute',
+                    top: '0',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    boxShadow: 'inset 0 2px 2px rgba(0,0,0,0.5)'
+                  }}></div>
+                </div>
+              </div>
+            ) : (
+              <div className="phone-frame wow fadeInUp" style={{
+                width: '320px',
+                height: '650px',
+                background: 'linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)',
+                borderRadius: '45px',
+                padding: '15px',
+                boxShadow: '0 25px 60px rgba(0,0,0,0.3)',
+                position: 'relative',
+                border: '6px solid #333',
+                transition: 'all 0.5s ease'
+              }}>
+                {/* Notch */}
+                <div style={{
+                  width: '120px',
+                  height: '28px',
+                  background: '#1a1a1a',
+                  position: 'absolute',
+                  top: '15px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  borderRadius: '0 0 18px 18px',
+                  zIndex: 10,
+                  boxShadow: '0 2px 5px rgba(0,0,0,0.5)'
+                }}></div>
+
+                {/* Screen */}
+                <div style={{
+                  background: '#000',
+                  borderRadius: '32px',
+                  overflow: 'hidden',
+                  width: '100%',
+                  height: '100%',
+                  position: 'relative'
+                }}>
+                  <img src="/assets/img/mobile-preview.png" alt="Mobile Project Preview" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+              </div>
+            )}
+
+            {/* Decoration Shapes */}
+            <div className="shape-mockup jump d-none d-xl-block" data-top="10%" data-right="-5%">
+              <img src="/assets/img/shape/ab-1-shape-1.png" alt="shape" style={{ opacity: 0.6 }} />
+            </div>
+            <div className="shape-mockup movingX d-none d-xl-block" data-bottom="10%" data-left="-5%">
+              <img src="/assets/img/shape/ab-1-shape-2.png" alt="shape" style={{ opacity: 0.6 }} />
+            </div>
           </div>
         </div>
       </div>

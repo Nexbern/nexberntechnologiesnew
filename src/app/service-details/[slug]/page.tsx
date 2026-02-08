@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import Header from '@/components/Header';
@@ -116,6 +116,79 @@ export default function ServiceDetails() {
     const params = useParams();
     const slug = params.slug as string;
     const service = serviceData[slug];
+
+    const [showModal, setShowModal] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' });
+    const [formData, setFormData] = useState({
+        service: service ? service.title : '',
+        fullName: '',
+        email: '',
+        phone: '',
+        companyName: '',
+        projectType: 'New Project',
+        budget: '',
+        timeline: '',
+        description: ''
+    });
+
+    useEffect(() => {
+        if (service) {
+            setFormData(prev => ({ ...prev, service: service.title }));
+        }
+    }, [service]);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log('Starting form submission...', formData);
+
+        setIsSubmitting(true);
+        setSubmitMessage({ type: '', text: '' });
+
+        try {
+            console.log('Sending request to /api/send-quote');
+            const response = await fetch('/api/send-quote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            console.log('API Response:', { status: response.status, data });
+
+            if (response.ok) {
+                setSubmitMessage({ type: 'success', text: 'Quote request sent successfully! We will contact you soon.' });
+                setFormData({
+                    service: service ? service.title : '',
+                    fullName: '',
+                    email: '',
+                    phone: '',
+                    companyName: '',
+                    projectType: 'New Project',
+                    budget: '',
+                    timeline: '',
+                    description: ''
+                });
+                setTimeout(() => {
+                    setShowModal(false);
+                    setSubmitMessage({ type: '', text: '' });
+                }, 3000);
+            } else {
+                console.error('Submission failed:', data);
+                setSubmitMessage({ type: 'error', text: data.error || 'Failed to send quote request.' });
+            }
+        } catch (error) {
+            console.error('Network error during submission:', error);
+            setSubmitMessage({ type: 'error', text: 'An error occurred. Please try again.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     useEffect(() => {
         // Initialize Animations
@@ -296,15 +369,15 @@ export default function ServiceDetails() {
                                         <div className="download-media">
                                             <div className="download-media_icon"><i className="fa-light fa-file-pdf"></i></div>
                                             <div className="download-media_info">
-                                                <h5 className="download-media_title"><a href="#">Download PDF</a></h5>
+                                                <h5 className="download-media_title"><a href="/brochures/nexbern">Download PDF</a></h5>
                                             </div>
                                         </div>
-                                        <div className="download-media">
+                                        {/* <div className="download-media">
                                             <div className="download-media_icon"><i className="fal fa-file-lines"></i></div>
                                             <div className="download-media_info">
                                                 <h5 className="download-media_title"><a href="#">Download DOC</a></h5>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
 
@@ -312,10 +385,11 @@ export default function ServiceDetails() {
                                     <div className="widget-banner position-relative text-center">
                                         <span className="icon"><i className="fa-solid fa-phone"></i></span>
                                         <span className="text">Need Help? Call Here</span>
-                                        <a className="phone" href="tel:+25669872564">+256 6987 2564</a>
-                                        <Link href="/contact" className="th-btn style6">
+                                        <a className="phone" href="tel:+917071402831">+91 7071402831</a>
+                                        <a className="phone" href="tel:+917705084226">+91 7705084226</a>
+                                        <button onClick={() => setShowModal(true)} className="th-btn style6" style={{ width: '100%', border: 'none', cursor: 'pointer' }}>
                                             Get A Quote <i className="fa-light fa-arrow-right-long"></i>
-                                        </Link>
+                                        </button>
                                     </div>
                                 </div>
                             </aside>
@@ -323,6 +397,257 @@ export default function ServiceDetails() {
                     </div>
                 </div>
             </section>
+
+            {/* Quote Modal */}
+            {showModal && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    zIndex: 9999,
+                    padding: '20px'
+                }}>
+                    <div style={{
+                        backgroundColor: '#fff',
+                        borderRadius: '20px',
+                        width: '100%',
+                        maxWidth: '600px',
+                        maxHeight: '90vh',
+                        overflowY: 'auto',
+                        position: 'relative',
+                        boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+                    }} className="custom-scrollbar">
+                        <button
+                            onClick={() => setShowModal(false)}
+                            style={{
+                                position: 'absolute',
+                                top: '15px',
+                                right: '15px',
+                                background: 'transparent',
+                                border: 'none',
+                                fontSize: '24px',
+                                cursor: 'pointer',
+                                color: '#fff',
+                                zIndex: 10,
+                                width: '40px',
+                                height: '40px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: '50%',
+                                transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = 'transparent';
+                            }}
+                        >
+                            ×
+                        </button>
+
+                        {/* Modal Header */}
+                        <div style={{
+                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                            padding: '40px 30px',
+                            borderRadius: '20px 20px 0 0',
+                            color: '#fff'
+                        }}>
+                            <h2 style={{ margin: 0, fontSize: '28px', fontWeight: '700', color: '#fff' }}>Request a Quote</h2>
+                            <p style={{ margin: '10px 0 0', opacity: 0.9, fontSize: '16px', color: '#fff' }}>
+                                get a custom quote for {service?.title}
+                            </p>
+                        </div>
+
+                        {/* Modal Body */}
+                        <div style={{ padding: '30px' }}>
+                            <form onSubmit={handleSubmit}>
+                                <div className="row">
+                                    {/* Full Name */}
+                                    <div className="col-md-6 mb-20">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Full Name <span style={{ color: '#e74c3c' }}>*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="fullName"
+                                            value={formData.fullName}
+                                            onChange={handleInputChange}
+                                            placeholder="Your Name"
+                                            required
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none' }}
+                                        />
+                                    </div>
+
+                                    {/* Email */}
+                                    <div className="col-md-6 mb-20">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Email Address <span style={{ color: '#e74c3c' }}>*</span>
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            placeholder="your@email.com"
+                                            required
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none' }}
+                                        />
+                                    </div>
+
+                                    {/* Phone */}
+                                    <div className="col-md-6 mb-20">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Phone Number <span style={{ color: '#e74c3c' }}>*</span>
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            placeholder="+91 XXXXX XXXXX"
+                                            required
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none' }}
+                                        />
+                                    </div>
+
+                                    {/* Company Name */}
+                                    <div className="col-md-6 mb-20">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Company Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="companyName"
+                                            value={formData.companyName}
+                                            onChange={handleInputChange}
+                                            placeholder="Your Company"
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none' }}
+                                        />
+                                    </div>
+
+                                    {/* Project Type */}
+                                    <div className="col-md-6 mb-20">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Project Type <span style={{ color: '#e74c3c' }}>*</span>
+                                        </label>
+                                        <select
+                                            name="projectType"
+                                            value={formData.projectType}
+                                            onChange={handleInputChange}
+                                            required
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none' }}
+                                        >
+                                            <option value="New Project">New Project</option>
+                                            <option value="Redesign">Redesign</option>
+                                            <option value="Maintenance">Maintenance</option>
+                                            <option value="Consultation">Consultation</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    {/* Budget */}
+                                    <div className="col-md-6 mb-20">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Budget Range <span style={{ color: '#e74c3c' }}>*</span>
+                                        </label>
+                                        <select
+                                            name="budget"
+                                            value={formData.budget}
+                                            onChange={handleInputChange}
+                                            required
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none' }}
+                                        >
+                                            <option value="">Select Budget</option>
+                                            <option value="< Rs15,000">&lt; Rs15,000</option>
+                                            <option value="Rs15,000 - Rs30,000">Rs15,000 - Rs30,000</option>
+                                            <option value="Rs30,000 - Rs50,000">Rs30,000 - Rs50,000</option>
+                                            <option value="Rs50,000+">Rs50,000+</option>
+                                        </select>
+                                    </div>
+
+                                    {/* Timeline */}
+                                    <div className="col-12 mb-20">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Expected Timeline <span style={{ color: '#e74c3c' }}>*</span>
+                                        </label>
+                                        <select
+                                            name="timeline"
+                                            value={formData.timeline}
+                                            onChange={handleInputChange}
+                                            required
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none' }}
+                                        >
+                                            <option value="">Select Timeline</option>
+                                            <option value="Urgent (< 1 month)">Urgent (&lt; 1 month)</option>
+                                            <option value="1-3 Months">1-3 Months</option>
+                                            <option value="3-6 Months">3-6 Months</option>
+                                            <option value="Flexible">Flexible</option>
+                                        </select>
+                                    </div>
+
+                                    {/* Description */}
+                                    <div className="col-12 mb-25">
+                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333', fontSize: '14px' }}>
+                                            Project Description
+                                        </label>
+                                        <textarea
+                                            name="description"
+                                            value={formData.description}
+                                            onChange={handleInputChange}
+                                            placeholder="Tell us more about your project requirements..."
+                                            rows={4}
+                                            style={{ width: '100%', padding: '12px 15px', border: '2px solid #e0e0e0', borderRadius: '10px', fontSize: '15px', outline: 'none', resize: 'vertical' }}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Message */}
+                                {submitMessage.text && (
+                                    <div style={{
+                                        padding: '15px',
+                                        borderRadius: '10px',
+                                        marginBottom: '20px',
+                                        backgroundColor: submitMessage.type === 'success' ? '#d4edda' : '#f8d7da',
+                                        color: submitMessage.type === 'success' ? '#155724' : '#721c24',
+                                        border: `1px solid ${submitMessage.type === 'success' ? '#c3e6cb' : '#f5c6cb'}`
+                                    }}>
+                                        {submitMessage.text}
+                                    </div>
+                                )}
+
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    style={{
+                                        width: '100%',
+                                        padding: '15px',
+                                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                        color: '#fff',
+                                        border: 'none',
+                                        borderRadius: '10px',
+                                        fontSize: '16px',
+                                        fontWeight: '600',
+                                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                                        opacity: isSubmitting ? 0.7 : 1,
+                                        transition: 'all 0.3s ease'
+                                    }}
+                                >
+                                    {isSubmitting ? 'Sending Request...' : 'Submit Quote Request'}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <Footer />
         </>

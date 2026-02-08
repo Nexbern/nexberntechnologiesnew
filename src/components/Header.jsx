@@ -1,11 +1,57 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.classList.add('th-body-visible');
+        } else {
+            document.body.classList.remove('th-body-visible');
+        }
+    }, [isMobileMenuOpen]);
+
     return (
-        <header className="th-header header-layout1">
-            {/* <div className="header-top">
+        <>
+            <div className={`th-menu-wrapper ${isMobileMenuOpen ? 'th-body-visible' : ''}`}>
+                <div className="th-menu-area text-center">
+                    <button className="th-menu-toggle" onClick={toggleMobileMenu}><i className="fal fa-times"></i></button>
+                    <div className="mobile-logo">
+                        <Link href="/"><img src="/assets/img/logo.png" alt="Nexbern" /></Link>
+                    </div>
+                    <div className="th-mobile-menu">
+                        <ul>
+                            <li>
+                                <Link href="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link href="/about">About Us</Link>
+                            </li>
+                            <li>
+                                <Link href="/services">Our Services</Link>
+                            </li>
+                            <li>
+                                <Link href="/courses">Courses</Link>
+                            </li>
+                            <li>
+                                <Link href="/portfolio">Projects</Link>
+                            </li>
+                            <li>
+                                <Link href="/contact">Contact us</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <header className="th-header header-layout1">
+                {/* <div className="header-top">
                 <div className="container th-container">
                     <div className="row justify-content-center justify-content-xl-between align-items-center">
                         <div className="col-auto d-none d-md-block">
@@ -48,60 +94,61 @@ const Header = () => {
                     </div>
                 </div>
             </div> */}
-            <div className="sticky-wrapper">
-                <div className="menu-area">
-                    <div className="container th-container">
-                        <div className="row align-items-center justify-content-between">
-                            <div className="col-auto">
-                                <div className="header-logo">
-                                    <Link href="/">
-                                        <img src="/assets/img/logo.png" alt="Nexbern" style={{ maxHeight: '40px', width: 'auto' }} />
-                                    </Link>
+                <div className="sticky-wrapper">
+                    <div className="menu-area">
+                        <div className="container th-container">
+                            <div className="row align-items-center justify-content-between">
+                                <div className="col-auto">
+                                    <div className="header-logo">
+                                        <Link href="/">
+                                            <img src="/assets/img/logo.png" alt="Nexbern" style={{ maxHeight: '40px', width: 'auto' }} />
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="col-auto me-xxl-auto">
-                                <nav className="main-menu d-none d-xl-inline-block">
-                                    <ul>
-                                        <li>
-                                            <Link href="/">Home</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/about">About Us</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/services">Our Services</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/portfolio">Projects</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/blog">Blog</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/contact">Contact us</Link>
-                                        </li>
-                                    </ul>
-                                </nav>
-                                <button type="button" className="th-menu-toggle d-block d-xl-none">
-                                    <i className="far fa-bars"></i>
-                                </button>
-                            </div>
-                            <div className="col-auto d-none d-xl-block">
-                                <div className="header-button">
-                                    <button type="button" className="icon-btn searchBoxToggler">
-                                        <img src="/assets/img/icon/search.svg" alt="icon" />
+                                <div className="col-auto me-xxl-auto">
+                                    <nav className="main-menu d-none d-xl-inline-block">
+                                        <ul>
+                                            <li>
+                                                <Link href="/" style={{ fontWeight: 'bold' }}>Home</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/about" style={{ fontWeight: 'bold' }}>About Us</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/services" style={{ fontWeight: 'bold' }}>Our Services</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/courses" style={{ fontWeight: 'bold' }}>Courses</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/portfolio" style={{ fontWeight: 'bold' }}>Projects</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/contact" style={{ fontWeight: 'bold' }}>Contact us</Link>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <button type="button" className="th-menu-toggle d-block d-xl-none" onClick={toggleMobileMenu}>
+                                        <i className="far fa-bars"></i>
                                     </button>
-                                    <Link href="/contact" className="th-btn th-icon">
-                                        Get In Touch <i className="fa-light fa-arrow-right-long"></i>
-                                    </Link>
+                                </div>
+                                <div className="col-auto d-none d-xl-block">
+                                    <div className="header-button">
+                                        {/* <button type="button" className="icon-btn searchBoxToggler">
+                                        <img src="/assets/img/icon/search.svg" alt="icon" />
+                                    </button> */}
+                                        <Link href="/contact" className="th-btn th-icon" style={{ fontWeight: 'bold' }}>
+                                            Get In Touch <i className="fa-light fa-arrow-right-long"></i>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="logo-bg bg-mask" style={{ maskImage: 'url(/assets/img/logo_bg_mask.png)', WebkitMaskImage: 'url(/assets/img/logo_bg_mask.png)', transform: 'scaleX(-1)' }}></div>
                     </div>
-                    <div className="logo-bg bg-mask" style={{ maskImage: 'url(/assets/img/logo_bg_mask.png)', WebkitMaskImage: 'url(/assets/img/logo_bg_mask.png)', transform: 'scaleX(-1)' }}></div>
                 </div>
-            </div>
-        </header>
+            </header>
+        </>
     );
 };
 

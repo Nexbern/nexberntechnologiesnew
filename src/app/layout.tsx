@@ -5,6 +5,10 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Nexbern - IT Solutions',
   description: 'Professional IT Solutions',
+  icons: {
+    icon: '/assets/img/favicon.png',
+    shortcut: '/assets/img/favicon.png',
+  },
 }
 
 export default function RootLayout({
@@ -15,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png" />
         <link rel="stylesheet" href="/assets/css/app.min.css" />
         <link rel="stylesheet" href="/assets/css/fontawesome.min.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />

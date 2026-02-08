@@ -34,3 +34,146 @@
 .sec-title .scroll-text-ani2 {
   color: #000 !important;
 }
+
+/* Modal Animation */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Course Card Hover Effects */
+.course-card {
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.course-card .course-img {
+  transition: all 0.3s ease;
+}
+
+.course-card:hover .course-img {
+  transform: scale(1.05);
+}
+
+/* Feature Card Hover Effects */
+.feature-card {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Process Card Hover Effects */
+.process-card {
+  transition: all 0.3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Filter Button Hover */
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(11, 89, 219, 0.3);
+}
+
+/* Contact Info Card Hover Effects */
+.contact-info-card {
+  transition: all 0.3s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Contact Form Input Focus */
+.form-control:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Service Card Enhanced Styling */
+.service-box {
+  background: #ffffff;
+  border-radius: 20px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.service-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+  border-color: transparent;
+}
+
+/* Image Zoom Effect */
+.service-box .service-img {
+  overflow: hidden;
+  border-radius: 20px 20px 0 0 !important;
+  position: relative;
+}
+
+.service-box .service-img img {
+  width: 100%;
+  height: 240px !important;
+  object-fit: cover !important;
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+}
+
+.service-box:hover .service-img img {
+  transform: scale(1.12);
+}
+
+/* Content Styling */
+.service-box .service-content {
+  padding: 30px 25px !important;
+  background: #fff;
+  position: relative;
+}
+
+.service-box .box-title a {
+  background-image: linear-gradient(to right, #2563eb, #2563eb);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+  color: #1a1a1a;
+}
+
+.service-box:hover .box-title a {
+  background-size: 100% 2px;
+  color: #2563eb;
+}
+
+/* Button Hover Enhancement */
+.service-box .th-btn {
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.service-box:hover .th-btn {
+  background-color: #2563eb;
+  color: white !important;
+  border-color: #2563eb;
+}

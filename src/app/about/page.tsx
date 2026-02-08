@@ -201,22 +201,22 @@ export default function About() {
         {
             id: 'collapse-1',
             question: 'Can You Help Migrate Our Data To The Cloud?',
-            answer: 'Absolutely. We provide secure and seamless cloud migration services with minimal downtime and full data integrity. We begin with a deep understanding of your business needs, current IT environment, and long-term goals. Our team conducts a thorough assessment to identify gaps, Based on the assessment, we develop a customized IT solution—whether it\'s infrastructure setup, cloud migration, cybersecurity,'
+            answer: 'Yes, Nexbern Technologies can help migrate your data to the cloud by offering a structured, secure, and business-focused migration process. Nexbern Technologies begins by analyzing your existing infrastructure, applications, and data to understand performance, security, and scalability requirements. Based on this assessment, the team designs a customized cloud migration strategy using reliable platforms such as AWS, Microsoft Azure, or Google Cloud.'
         },
         {
             id: 'collapse-2',
             question: 'How Do You Ensure Our Data And Systems Are Secure?',
-            answer: 'Absolutely. We provide secure and seamless cloud migration services with minimal downtime and full data integrity. We begin with a deep understanding of your business needs, current IT environment, and long-term goals. Our team conducts a thorough assessment to identify gaps, Based on the assessment, we develop a customized IT solution—whether it\'s infrastructure setup, cloud migration, cybersecurity,'
+            answer: 'At Nexbern Technologies, we ensure the security of your data and systems by following a multi-layered security approach that covers people, processes, and technology. We implement strong access controls, role-based permissions, and multi-factor authentication to prevent unauthorized access. All data is protected using industry-standard encryption both in transit and at rest, along with secure network configurations such as firewalls and intrusion detection systems. Regular security audits, vulnerability assessments, and continuous monitoring are performed to identify and mitigate risks proactively. In addition, we follow best practices and compliance standards to ensure data integrity, confidentiality, and availability, providing our clients with a secure and reliable digital environment.'
         },
         {
             id: 'collapse-3',
             question: 'What If We Already Have An In-House IT Team?',
-            answer: 'Absolutely. We provide secure and seamless cloud migration services with minimal downtime and full data integrity. We begin with a deep understanding of your business needs, current IT environment, and long-term goals. Our team conducts a thorough assessment to identify gaps, Based on the assessment, we develop a customized IT solution—whether it\'s infrastructure setup, cloud migration, cybersecurity,'
+            answer: 'Even if you already have an in-house IT team, Nexbern Technologies works as a strategic partner rather than a replacement. We collaborate closely with your internal team to complement their skills, provide specialized expertise, and handle complex or time-critical tasks such as cloud migration, security hardening, system optimization, or scalability planning. Your IT team continues to manage day-to-day operations while Nexbern Technologies supports them with advanced tools, best practices, and guidance, ensuring faster implementation, reduced risk, and improved overall system performance without disrupting your existing workflows.'
         },
         {
             id: 'collapse-4',
             question: 'How Do I Know Which IT Services My Business Needs?',
-            answer: 'Absolutely. We provide secure and seamless cloud migration services with minimal downtime and full data integrity. We begin with a deep understanding of your business needs, current IT environment, and long-term goals. Our team conducts a thorough assessment to identify gaps, Based on the assessment, we develop a customized IT solution—whether it\'s infrastructure setup, cloud migration, cybersecurity,'
+            answer: 'At Nexbern Technologies, we help you identify the right IT services for your business by first understanding your goals, current challenges, and existing technology setup. Our team conducts a detailed assessment of your infrastructure, applications, security posture, and scalability requirements to pinpoint gaps and opportunities for improvement. Based on this analysis, we recommend only the services that align with your business objectives—whether it’s cloud solutions, cybersecurity, software development, or ongoing IT support—ensuring cost efficiency, improved performance, and long-term growth without unnecessary complexity.'
         }
     ];
 
@@ -295,7 +295,7 @@ export default function About() {
                                 </div>
                                 <div className="about-wrapp-content">
                                     <p className="sec-text mb-30">
-                                        IT solutions refer to a broad range of services and technologies designed to address specific business needs, streamline operations, and drive growth. These solutions encompass hardware.
+                                        IT solutions cover a wide range of services and technologies that address specific business needs, streamline workflows, and support long-term growth. From infrastructure and networking to software and cloud solutions, we provide end-to-end technology support.
                                     </p>
                                     <div className="about-item-wrap">
                                         <div className="about-item style2">
@@ -304,7 +304,7 @@ export default function About() {
                                             </div>
                                             <div className="about-item_centent">
                                                 <h5 className="box-title">Innovation at our core</h5>
-                                                <p className="about-item_text">There are many variations of passages of available but the majority.</p>
+                                                <p className="about-item_text">We continuously innovate by adopting the latest technologies and best practices, ensuring our clients stay competitive in a fast-changing digital landscape.</p>
                                             </div>
                                         </div>
                                         <div className="about-item style2">
@@ -313,7 +313,7 @@ export default function About() {
                                             </div>
                                             <div className="about-item_centent">
                                                 <h5 className="box-title">Internal Networking</h5>
-                                                <p className="about-item_text">There are many variations of passages of available but the majority.</p>
+                                                <p className="about-item_text">Our internal networking solutions are designed to improve connectivity, security, and performance, enabling seamless communication and collaboration across your organization.</p>
                                             </div>
                                         </div>
                                         <div className="about-item style2">
@@ -322,7 +322,7 @@ export default function About() {
                                             </div>
                                             <div className="about-item_centent">
                                                 <h5 className="box-title">Simplifying complexity</h5>
-                                                <p className="about-item_text">There are many variations of passages of available but the majority.</p>
+                                                <p className="about-item_text">We break down complex IT systems into simple, manageable, and efficient solutions, allowing businesses to focus on what matters most—growth and success.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -350,7 +350,7 @@ export default function About() {
                                     </div>
                                     <div className="discount-tag">
                                         <Link href="/" className="icon">
-                                            <img src="/assets/img/normal/sign1.png" alt="img" />
+                                            {/* <img src="" alt="img" /> */}
                                         </Link>
                                         <div className="discount-wrapp">
                                             <span className="discount-anime">Nexber Technologies EXPERT</span>
@@ -490,7 +490,7 @@ export default function About() {
                                     <span className="scroll-text-ani">Building the Future of Technology Today</span>
                                 </h2>
                                 <p className="sec-text me-xl-5 wow fadeInUp" data-wow-delay=".3s">
-                                    A software development company specializes in designing, developing, and deploying software applications tailored to meet specific client needs. These companies combine technical expertise with innovative strategies to deliver cutting-edge solutions for businesses across various industries.
+                                    Nexbern Technologies is a software development company that specializes in designing, developing, and deploying customized software solutions tailored to meet specific business needs. We combine strong technical expertise with innovative strategies to deliver scalable, reliable, and cutting-edge solutions for clients across diverse industries.
                                 </p>
                             </div>
                             <div className="choose-about wow fadeInUp">
@@ -500,7 +500,7 @@ export default function About() {
                                 <div className="media-body">
                                     <h3 className="box-title">Evolving Technologies</h3>
                                     <p className="choose-about_text pe-xl-5 me-xl-5">
-                                        Staying updated with the latest trends through continuous learning and innovation.
+                                       We stay ahead of the technology curve by continuously learning, adapting, and implementing the latest tools, frameworks, and industry trends to deliver future-ready solutions.
                                     </p>
                                 </div>
                             </div>
@@ -511,7 +511,7 @@ export default function About() {
                                 <div className="media-body">
                                     <h3 className="box-title">Data Security</h3>
                                     <p className="choose-about_text pe-xl-5 me-xl-5">
-                                        Adhering to industry standards like GDPR, HIPAA, and ISO for data protection.
+                                       We prioritize data protection by strictly adhering to industry standards and compliance requirements such as GDPR, HIPAA, and ISO, ensuring confidentiality, integrity, and trust.
                                     </p>
                                 </div>
                             </div>
@@ -522,7 +522,7 @@ export default function About() {
                                 <div className="media-body">
                                     <h3 className="box-title">Quality Assurance</h3>
                                     <p className="choose-about_text pe-xl-5 me-xl-5">
-                                        Rigorous testing processes to deliver bug-free and high-performing software.
+                                        Our rigorous testing and quality assurance processes ensure every product is thoroughly tested, bug-free, high-performing, and ready for real-world use.
                                     </p>
                                 </div>
                             </div>
@@ -622,7 +622,7 @@ export default function About() {
                 {/* Brand/Partners Section */}
                 <div className="brand-area space-bottom">
                     <div className="container">
-                        <div className="title-area">
+                        {/* <div className="title-area">
                             <span className="sub-title text-white">
                                 <span className="squre-shape left me-3"></span>
                                 Our Partners
@@ -630,8 +630,8 @@ export default function About() {
                             <h2 className="sec-title text-white">
                                 <span className="scroll-text-ani2">Our Clients and Partners</span>
                             </h2>
-                        </div>
-                        <Swiper
+                        </div> */}
+                        {/* <Swiper
                             modules={[Autoplay]}
                             loop={true}
                             autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -658,7 +658,7 @@ export default function About() {
                                     </div>
                                 </SwiperSlide>
                             ))}
-                        </Swiper>
+                        </Swiper> */}
                     </div>
                 </div>
 
