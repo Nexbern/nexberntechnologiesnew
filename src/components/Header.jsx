@@ -95,19 +95,19 @@ const Header = () => {
                 </div>
             </div> */}
                 <div className="sticky-wrapper">
-                    <div className="menu-area">
+                    <div className="menu-area" style={{ padding: '0 30px' }}>
                         <div className="container th-container">
                             <div className="row align-items-center justify-content-between">
                                 <div className="col-auto">
                                     <div className="header-logo">
                                         <Link href="/">
-                                            <img src="/assets/img/logo.png" alt="Nexbern" style={{ maxHeight: '40px', width: 'auto' }} />
+                                            <img src="/assets/img/logo.png" alt="Nexbern" style={{ maxHeight: '60px', width: 'auto' }} />
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-auto me-xxl-auto">
+                                <div className="col-auto ms-auto">
                                     <nav className="main-menu d-none d-xl-inline-block">
-                                        <ul>
+                                        <ul style={{ display: 'flex', justifyContent: 'flex-end', margin: 0 }}>
                                             <li>
                                                 <Link href="/" style={{ fontWeight: 'bold' }}>Home</Link>
                                             </li>

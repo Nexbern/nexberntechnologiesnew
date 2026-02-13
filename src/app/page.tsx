@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination, EffectCoverflow, EffectFade } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination, EffectCoverflow, EffectFade, FreeMode } from 'swiper/modules';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import 'swiper/css';
@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/effect-fade';
+import 'swiper/css/free-mode';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -283,60 +284,70 @@ export default function Home() {
 
 
       {/* Feature Section */}
-      <section className="">
-        <div className="feature-list-wrap">
-          <div className="feature-area overflow-hidden" id="feature-area">
-            <div className="row gx-0 justify-content-center">
-              <div className="col-xl-4 col-lg-6">
-                <div className="feature-item d-flex align-items-start">
-                  <div className="feature-item_icon">
-                    <img src="/assets/img/icon/feature_1_1.svg" alt="icon" />
-                  </div>
-                  <div className="media-body">
-                    <h3 className="box-title">Highly Expert Team</h3>
-                    <p className="feature-item_text">We provide the most responsive and functional IT design</p>
-                  </div>
+      <div className="feature-list-wrap">
+        <div className="feature-area overflow-hidden" id="feature-area">
+          <div className="row gx-0 justify-content-center">
+            <div className="col-xl-4 col-lg-6">
+              <div className="feature-item d-flex align-items-start">
+                <div className="feature-item_icon">
+                  <img src="/assets/img/icon/feature_1_1.svg" alt="icon" />
+                </div>
+                <div className="media-body">
+                  <h3 className="box-title">Highly Expert Team</h3>
+                  <p className="feature-item_text">We provide the most responsive and functional IT design</p>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-6">
-                <div className="feature-item d-flex align-items-start">
-                  <div className="feature-item_icon">
-                    <img src="/assets/img/icon/feature_1_2.svg" alt="icon" />
-                  </div>
-                  <div className="media-body">
-                    <h3 className="box-title">24/7 Customer Service</h3>
-                    <p className="feature-item_text">We provide the most responsive and functional IT design</p>
-                  </div>
+            </div>
+            <div className="col-xl-4 col-lg-6">
+              <div className="feature-item d-flex align-items-start">
+                <div className="feature-item_icon">
+                  <img src="/assets/img/icon/feature_1_2.svg" alt="icon" />
+                </div>
+                <div className="media-body">
+                  <h3 className="box-title">24/7 Customer Service</h3>
+                  <p className="feature-item_text">We provide the most responsive and functional IT design</p>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-6">
-                <div className="feature-item d-flex align-items-start">
-                  <div className="feature-item_icon">
-                    <img src="/assets/img/icon/feature_1_3.svg" alt="icon" />
-                  </div>
-                  <div className="media-body">
-                    <h3 className="box-title">Competitive Pricing</h3>
-                    <p className="feature-item_text">We provide the most responsive and functional IT design</p>
-                  </div>
+            </div>
+            <div className="col-xl-4 col-lg-6">
+              <div className="feature-item d-flex align-items-start">
+                <div className="feature-item_icon">
+                  <img src="/assets/img/icon/feature_1_3.svg" alt="icon" />
+                </div>
+                <div className="media-body">
+                  <h3 className="box-title">Competitive Pricing</h3>
+                  <p className="feature-item_text">We provide the most responsive and functional IT design</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Category Section with Continuous Smooth Sliding */}
       <section className="category-area bg-top-center space overflow-hidden" style={{ backgroundImage: 'url(/assets/img/bg/category_bg_1.png)' }}>
         <div className="container th-container">
-          <div className="title-area mb-60 text-center"><span className="sub-title text-anime-style-2">Our Features</span>
+          <div className="title-area mb-60 text-center">
+            <span className="sub-title text-anime-style-2">Our Features</span>
             <h2 className="sec-title text-anime-style-3">Reliable IT for Unstoppable Growth</h2>
           </div>
           <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
+            modules={[Autoplay, Navigation, Pagination, FreeMode]}
             className="categorySlider"
             id="categorySlider1"
             slidesPerView={1}
             spaceBetween={24}
             loop={true}
-            autoplay={{ delay: 6000, disableOnInteraction: false }}
+            speed={3000}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            freeMode={{
+              enabled: true,
+              momentum: false,
+            }}
             breakpoints={{
               0: { slidesPerView: 1 },
               576: { slidesPerView: 1 },
@@ -348,121 +359,166 @@ export default function Home() {
           >
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_1.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_1.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Enhanced Cybersecurity</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Enhanced Cybersecurity</Link>
+                </h3>
                 <p className="sec-text">Advanced security measures like firewalls, encryption,</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_2.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_2.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Cloud Integration</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Cloud Integration</Link>
+                </h3>
                 <p className="sec-text">Access to scalable cloud-based services for storage</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_3.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_3.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Customized Services</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Customized Services</Link>
+                </h3>
                 <p className="sec-text">Tailored IT solutions designed to meet specific business needs.</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_4.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_4.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">24/7 IT Support</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">24/7 IT Support</Link>
+                </h3>
                 <p className="sec-text">Around-the-clock monitoring and troubleshooting.</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_5.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_5.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">End-to-End Solution</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">End-to-End Solution</Link>
+                </h3>
                 <p className="sec-text">Covers all aspects of IT, from consu-lting and planning</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_1.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_1.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Airbirds</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Airbirds</Link>
+                </h3>
                 <p className="sec-text">Advanced security measures like firewalls, encryption,</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_2.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_2.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Enhanced Cybersecurity</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Enhanced Cybersecurity</Link>
+                </h3>
                 <p className="sec-text">Access to scalable cloud-based services for storage</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_3.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_3.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Hiking</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Hiking</Link>
+                </h3>
                 <p className="sec-text">Tailored IT solutions designed to meet specific business needs.</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_4.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_4.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Cloud Integration</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Cloud Integration</Link>
+                </h3>
                 <p className="sec-text">Around-the-clock monitoring and troubleshooting.</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_5.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_5.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Cruises</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Cruises</Link>
+                </h3>
                 <p className="sec-text">Covers all aspects of IT, from consu-lting and planning</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_1.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_1.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Customized Services</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Customized Services</Link>
+                </h3>
                 <p className="sec-text">Advanced security measures like firewalls, encryption,</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_2.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_2.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Walking</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Walking</Link>
+                </h3>
                 <p className="sec-text">Access to scalable cloud-based services for storage</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_3.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_3.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">24/7 IT Support</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">24/7 IT Support</Link>
+                </h3>
                 <p className="sec-text">Tailored IT solutions designed to meet specific business needs.</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_4.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_4.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Walking</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Walking</Link>
+                </h3>
                 <p className="sec-text">Around-the-clock monitoring and troubleshooting.</p>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="category-card single">
-                <div className="box-img global-img"><img src="/assets/img/category/category_1_5.jpg" alt="Image" />
+                <div className="box-img global-img">
+                  <img src="/assets/img/category/category_1_5.jpg" alt="Image" />
                 </div>
-                <h3 className="box-title"><Link href="/service-details">Customized Services</Link></h3>
+                <h3 className="box-title">
+                  <Link href="/service-details">Customized Services</Link>
+                </h3>
                 <p className="sec-text">Covers all aspects of IT, from consu-lting and planning</p>
               </div>
             </SwiperSlide>
@@ -470,7 +526,7 @@ export default function Home() {
         </div>
       </section>
       {/* About Section */}
-      <div className="about-area position-relative overflow-hidden" id="about-sec">
+      <div className="about-area position-relative overflow-hidden space" id="about-sec">
         <div className="container">
           <div className="row">
             <div className="col-xl-6">
@@ -521,74 +577,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div className="case-area position-relative overflow-hidden space">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-5">
-              <div className="title-area case-title-box text-center text-xl-start">
-                <span className="sub-title mb-15 text-anime-style-2">Case Studies</span>
-                <h2 className="sec-title text-anime-style-3">Transforming Ideas into Innovations</h2>
-              </div>
-            </div>
-            <div className="col-xl-7">
-              <div className="nav nav-tabs case-tabs" role="tablist">
-                {caseStudyTabs.map(tab => (
-                  <button
-                    key={tab.id}
-                    className={`nav-link th-btn ${activeTab === tab.id ? 'active' : ''}`}
-                    type="button"
-                    onClick={() => setActiveTab(tab.id)}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="tab-content">
-            <div className="tab-pane fade show active" role="tabpanel">
-              <div className="slider-area case-slider slider-drag-wrap">
-                <Swiper
-                  key={activeTab}
-                  modules={[EffectCoverflow, Pagination, Autoplay]}
-                  effect="coverflow"
-                  coverflowEffect={{ rotate: 0, stretch: 95, depth: 212, modifier: 1 }}
-                  centeredSlides={true}
-                  loop={true}
-                  className="caseSlider"
-                  breakpoints={{
-                    0: { slidesPerView: 1 },
-                    576: { slidesPerView: 2 },
-                    992: { slidesPerView: 3 },
-                    1200: { slidesPerView: 3 }
-                  }}
-                >
-                  {caseStudySlides.map((slide, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="case-box">
-                        <div className="case-img">
-                          <img src={`/assets/img/case/${slide.img}`} alt="case image" />
-                          <div className="case-content">
-                            <div className="media-left">
-                              <h4 className="box-title"><Link href="/case-study-details">{slide.title}</Link></h4>
-                              <span className="case-subtitle">{slide.subtitle}</span>
-                            </div>
-                          </div>
-                          <div className="case-action">
-                            <Link href="/case-study-details" className="case-btn">
-                              <i className="fa-light fa-arrow-right-long"></i>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       {/* Services Section */}
       <section className="position-relative bg-top-center overflow-hidden space" id="service-sec" style={{ backgroundImage: 'url(/assets/img/bg/service_bg_1.jpg)' }}>
         <div className="container">
@@ -788,99 +776,85 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Counter Section */}
-      {/* <div className="counter-area space space-extra3-bottom overflow-hidden">
-                <div className="container">
-                    <div className="counter-wrap1">
-                        <div className="row">
-                            <div className="col-md-6 col-xl-3 counter-card-wrap">
-                                <div className="counter-card">
-                                    <div className="counter-shape"><span></span></div>
-                                    <div className="media-body">
-                                        <h3 className="box-number"><span className="counter-number">12</span></h3>
-                                        <h6 className="counter-title">Years Experience</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-xl-3 counter-card-wrap">
-                                <div className="counter-card">
-                                    <div className="counter-shape"><span></span></div>
-                                    <div className="media-body">
-                                        <h3 className="box-number"><span className="counter-number">97</span>%</h3>
-                                        <h6 className="counter-title">Retention Rate</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-xl-3 counter-card-wrap">
-                                <div className="counter-card">
-                                    <div className="counter-shape"><span></span></div>
-                                    <div className="media-body">
-                                        <h3 className="box-number"><span className="counter-number">8</span>k</h3>
-                                        <h6 className="counter-title">Project Completed</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-xl-3 counter-card-wrap">
-                                <div className="counter-card">
-                                    <div className="counter-shape"><span></span></div>
-                                    <div className="media-body">
-                                        <h3 className="box-number"><span className="counter-number">19</span>k</h3>
-                                        <h6 className="counter-title">Happy Clients</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      {/* Why Choose Us Section */}
+      <section className="space bg-smoke" id="why-choose-sec">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="title-area text-center">
+                <span className="sub-title mb-15 text-anime-style-2">Why Choose Nexbern?</span>
+                <h2 className="sec-title text-anime-style-3">Quality, affordability, and innovation combined</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row gy-4">
+            {[
+              {
+                title: 'Affordable Pricing',
+                text: 'Quality IT services at competitive rates that fit your budget',
+                icon: 'feature_1_2.svg'
+              },
+              {
+                title: 'Expert Team',
+                text: 'Experienced professionals combined with talented young developers',
+                icon: 'feature_1_1.svg'
+              },
+              {
+                title: 'On-Time Delivery',
+                text: 'We respect deadlines and deliver projects on schedule',
+                icon: 'feature_1_3.svg'
+              },
+              {
+                title: 'Modern Tech Stack',
+                text: 'Latest technologies and best practices for cutting-edge solutions',
+                icon: 'sv-icon_10_1.svg'
+              },
+              {
+                title: 'Ongoing Support',
+                text: 'Continuous maintenance and support after project completion',
+                icon: 'sv-icon_10_4.svg'
+              },
+              {
+                title: 'Custom Solutions',
+                text: 'Tailored to your specific business needs and goals',
+                icon: 'service_4_1.svg'
+              }
+            ].map((item, index) => (
+              <div className="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay={`${0.1 * (index + 1)}s`} key={index}>
+                <div className="feature-card" style={{
+                  background: '#fff',
+                  padding: '40px',
+                  borderRadius: '20px',
+                  height: '100%',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+                  transition: 'all 0.3s ease',
+                  border: '1px solid rgba(0,0,0,0.03)'
+                }}>
+                  <div className="feature-card_icon mb-25" style={{
+                    width: '60px',
+                    height: '60px',
+                    background: 'rgba(11, 89, 219, 0.1)',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <img src={`/assets/img/icon/${item.icon}`} alt="icon" style={{ width: '35px' }} />
+                  </div>
+                  <div className="feature-card_content">
+                    <h3 className="box-title" style={{ fontSize: '22px', marginBottom: '15px' }}>{item.title}</h3>
+                    <p className="feature-card_text" style={{ marginBottom: '0', color: '#666' }}>{item.text}</p>
+                  </div>
                 </div>
-            </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Counter Section */}
 
       {/* Blog Section */}
-      {/* <section className="overflow-hidden space bg-smoke overflow-hidden" id="blog-sec">
-                    <div className="container">
-                        <div className="mb-30 text-center text-md-start">
-                            <div className="row align-items-center justify-content-between">
-                                <div className="col-md-7">
-                                    <div className="title-area mb-md-0">
-                                        <span className="sub-title">Blog and Article</span>
-                                        <h2 className="sec-title">News & Articles From Nexbern</h2>
-                                    </div>
-                                </div>
-                                <div className="col-md-auto">
-                                    <Link href="/blog" className="th-btn style4 th-icon">
-                                        See More Articles <i className="fa-light fa-arrow-right-long"></i>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row gy-4">
-                            {[
-                                { title: 'Top 10 IT Solutions Every Business Needs in 2025', date: 'July 05, 2025', img: 'blog_1_1.jpg' },
-                                { title: 'Exploring the Benefits of End-to-End IT Solution Services', date: 'August 15, 2025', img: 'blog_1_2.jpg' },
-                                { title: 'The Impact of AI and Machine Learning on IT Solutions', date: 'Sep 15, 2025', img: 'blog_1_3.jpg' }
-                            ].map((blog, index) => (
-                                <div className="col-md-6 col-lg-4" key={index}>
-                                    <div className="blog-box th-ani">
-                                        <div className="blog-img global-img">
-                                            <img src={`/assets/img/blog/${blog.img}`} alt="blog image" />
-                                        </div>
-                                        <div className="blog-box_content">
-                                            <div className="blog-meta">
-                                                <Link className="author" href="/blog">{blog.date}</Link>
-                                                <Link href="/blog">6 min read</Link>
-                                            </div>
-                                            <h3 className="box-title">
-                                                <Link href="/blog-details">{blog.title}</Link>
-                                            </h3>
-                                            <Link href="/blog-details" className="th-btn style4 th-icon">
-                                                Read More <i className="fa-light fa-arrow-right-long"></i>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section> */}
 
       <Footer />
 

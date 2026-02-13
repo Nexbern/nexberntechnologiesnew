@@ -404,7 +404,7 @@ export default function Courses() {
             </div>
 
             {/* Courses Grid */}
-            <section className="space-bottom">
+            <section className="space">
                 <div className="container">
                     <div className="row gy-4">
                         {filteredCourses.map((course, index) => (

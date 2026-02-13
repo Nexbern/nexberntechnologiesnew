@@ -363,55 +363,6 @@ export default function About() {
                 </div>
             </div>
 
-            {/* Counter Section */}
-            {/* <div className="counter-area overflow-hidden">
-                <div className="container">
-                    <div className="counter-wrap5">
-                        <div className="row gy-40">
-                            <div className="col-sm-6 col-lg-3 counter-card-wrap5">
-                                <div className="counter-card5">
-                                    <div className="media-body">
-                                        <h3 className="box-number">
-                                            <span className="counter-number">8</span>K
-                                        </h3>
-                                        <h6 className="counter-title">Project Completed</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-3 counter-card-wrap5">
-                                <div className="counter-card5">
-                                    <div className="media-body">
-                                        <h3 className="box-number">
-                                            <span className="counter-number">260</span>+
-                                        </h3>
-                                        <h6 className="counter-title">Skilled Experts</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-3 counter-card-wrap5">
-                                <div className="counter-card5">
-                                    <div className="media-body">
-                                        <h3 className="box-number">
-                                            <span className="counter-number">60</span>K
-                                        </h3>
-                                        <h6 className="counter-title">Media Activities</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-3 counter-card-wrap5">
-                                <div className="counter-card5">
-                                    <div className="media-body">
-                                        <h3 className="box-number">
-                                            <span className="counter-number">19</span>K
-                                        </h3>
-                                        <h6 className="counter-title">Happy Clients</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
 
             {/* Work Process Section */}
             <section className="process-sec4 overflow-hidden space" id="process-sec" style={{ backgroundImage: 'url(/assets/img/bg/process-4-1-bg.png)' }}>
@@ -500,7 +451,7 @@ export default function About() {
                                 <div className="media-body">
                                     <h3 className="box-title">Evolving Technologies</h3>
                                     <p className="choose-about_text pe-xl-5 me-xl-5">
-                                       We stay ahead of the technology curve by continuously learning, adapting, and implementing the latest tools, frameworks, and industry trends to deliver future-ready solutions.
+                                        We stay ahead of the technology curve by continuously learning, adapting, and implementing the latest tools, frameworks, and industry trends to deliver future-ready solutions.
                                     </p>
                                 </div>
                             </div>
@@ -511,7 +462,7 @@ export default function About() {
                                 <div className="media-body">
                                     <h3 className="box-title">Data Security</h3>
                                     <p className="choose-about_text pe-xl-5 me-xl-5">
-                                       We prioritize data protection by strictly adhering to industry standards and compliance requirements such as GDPR, HIPAA, and ISO, ensuring confidentiality, integrity, and trust.
+                                        We prioritize data protection by strictly adhering to industry standards and compliance requirements such as GDPR, HIPAA, and ISO, ensuring confidentiality, integrity, and trust.
                                     </p>
                                 </div>
                             </div>
@@ -547,70 +498,6 @@ export default function About() {
                 </div>
             </div>
 
-            {/* Team Section */}
-            {/* <section className="team-area7 position-relative space overflow-hidden">
-                <div className="container">
-                    <div className="team-title-wrap7">
-                        <div className="title-area">
-                            <span className="sub-title">
-                                <span className="squre-shape left me-3"></span>
-                                Our Team
-                            </span>
-                            <h2 className="sec-title">
-                                <span className="scroll-text-ani">Meet Our Experts</span>
-                            </h2>
-                            <p className="sec-text mb-0">Expert guidance on digital transformation, infrastructure planning, and technology roadmaps aligned.</p>
-                        </div>
-                        <div className="sec-btn">
-                            <Link href="/team" className="th-btn th-btn-sm th-radius style9 th-icon">
-                                View All Team <i className="fa-light fa-arrow-right-long"></i>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="team-card-wrap7">
-                            {[
-                                { name: 'Jane Cooper', role: 'Web Designer', img: 'team_7_1.jpg' },
-                                { name: 'Jacob Jones', role: 'Web Designer', img: 'team_7_2.jpg' },
-                                { name: 'Janny Willson', role: 'Web Designer', img: 'team_7_3.jpg' },
-                                { name: 'Maria Prova', role: 'Web Designer', img: 'team_7_4.jpg' },
-                                { name: 'Rebeka Maliha', role: 'Web Designer', img: 'team_7_5.jpg' },
-                                { name: 'Michel Smith', role: 'Web Designer', img: 'team_7_6.jpg' }
-                            ].map((member, index) => (
-                                <div key={index} className="team-card7-wrap">
-                                    <div className="th-team team-card7">
-                                        <div className="team-img">
-                                            <img src={`/assets/img/team/${member.img}`} alt="Team" />
-                                        </div>
-                                        <div className="team-content">
-                                            <div className="media-body">
-                                                <h3 className="box-title">
-                                                    <Link href="/team-details">{member.name}</Link>
-                                                </h3>
-                                                <span className="team-desig">{member.role}</span>
-                                            </div>
-                                            <div className="th-social">
-                                                <a target="_blank" href="https://facebook.com/">
-                                                    <i className="fab fa-facebook-f"></i>
-                                                </a>
-                                                <a target="_blank" href="https://twitter.com/">
-                                                    <i className="fab fa-twitter"></i>
-                                                </a>
-                                                <a target="_blank" href="https://instagram.com/">
-                                                    <i className="fab fa-instagram"></i>
-                                                </a>
-                                                <a target="_blank" href="https://linkedin.com/">
-                                                    <i className="fab fa-linkedin-in"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section> */}
 
             {/* FAQ and Brand Section */}
             <div className="faq-area4 position-relative z-index-common space-top overflow-hidden" id="faq-sec">
@@ -620,47 +507,6 @@ export default function About() {
                 </div>
 
                 {/* Brand/Partners Section */}
-                <div className="brand-area space-bottom">
-                    <div className="container">
-                        {/* <div className="title-area">
-                            <span className="sub-title text-white">
-                                <span className="squre-shape left me-3"></span>
-                                Our Partners
-                            </span>
-                            <h2 className="sec-title text-white">
-                                <span className="scroll-text-ani2">Our Clients and Partners</span>
-                            </h2>
-                        </div> */}
-                        {/* <Swiper
-                            modules={[Autoplay]}
-                            loop={true}
-                            autoplay={{ delay: 3000, disableOnInteraction: false }}
-                            breakpoints={{
-                                0: { slidesPerView: 1 },
-                                576: { slidesPerView: 2 },
-                                768: { slidesPerView: 3 },
-                                992: { slidesPerView: 3 },
-                                1200: { slidesPerView: 5 },
-                                1400: { slidesPerView: 6 }
-                            }}
-                            className="th-slider brandSlider1"
-                        >
-                            {[1, 2, 3, 4, 5, 6].map((num) => (
-                                <SwiperSlide key={num}>
-                                    <div className="brand-box style2">
-                                        <div className="brand-box-bg">
-                                            <img src="/assets/img/shape/brand_box_bg_2_1.png" alt="img" />
-                                        </div>
-                                        <a href="#">
-                                            <img className="original" src={`/assets/img/brand/brand_3_${num}.svg`} alt="Brand Logo" />
-                                            <img className="gray" src={`/assets/img/brand/brand_3_${num}.svg`} alt="Brand Logo" />
-                                        </a>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper> */}
-                    </div>
-                </div>
 
                 {/* FAQ Section */}
                 <div className="faq-wrap4 bg-white space">

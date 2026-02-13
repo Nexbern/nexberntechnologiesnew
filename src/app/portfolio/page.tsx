@@ -17,29 +17,21 @@ const portfolioSites = [
         id: 1,
         name: 'LohaKart',
         url: 'https://lohakart.com/',
-        // category: 'E-Commerce',
-        // description: 'Modern e-commerce solution with advanced features'
     },
     {
         id: 2,
         name: 'Pacific Hitech',
         url: 'https://phitechgroup.com/',
-        // category: 'Corporate',
-        // description: 'Professional corporate website with CMS integration'
     },
     {
         id: 3,
         name: 'TCP Limited',
         url: 'https://tcplimited.com/',
-        // category: 'Landing Page',
-        // description: 'Responsive landing page for mobile application'
     },
     {
         id: 4,
         name: 'Nexbern',
         url: 'https://www.nexbern.com/',
-        // category: 'SaaS',
-        // description: 'Cloud-based SaaS platform with analytics'
     }
 ];
 
@@ -133,8 +125,6 @@ export default function Portfolio() {
                                     >
                                         <div className="site-info">
                                             <h4 className="site-name">{site.name}</h4>
-                                            {/* <span className="site-category">{site.category}</span> */}
-                                            {/* <p className="site-description">{site.description}</p> */}
                                         </div>
                                         <div className="site-arrow">
                                             <i className="fa-light fa-arrow-right"></i>

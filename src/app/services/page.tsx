@@ -140,7 +140,7 @@ export default function Services() {
             </div>
 
             {/* Services Section */}
-            <section className="position-relative bg-top-center overflow-hidden space-top" id="service-sec">
+            <section className="position-relative bg-top-center overflow-hidden space" id="service-sec">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
@@ -286,71 +286,7 @@ export default function Services() {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            {/* <div className="position-relative overflow-hidden space">
-                <div className="cta-sec6 theme-bg position-relative overflow-hidden">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-6 col-lg-6">
-                                <div className="cta-area6 text-center text-md-start space position-relative">
-                                    <div className="title-area mb-40">
-                                        <h2 className="sec-title text-white pe-xl-5 me-xl-4 mt-n3 text-anime-style-2">
-                                            <span className="discount-text">Grab up to 35% off</span>
-                                            Have any project to work with us
-                                        </h2>
-                                        <p className="text-white wow fadeInUp" data-wow-delay=".3s">
-                                            Limited time offer, don't miss the opportunity
-                                        </p>
-                                    </div>
-                                    <div className="btn-group wow fadeInUp" data-wow-delay=".4s">
-                                        <Link href="/contact" className="th-btn style5 th-radius th-icon">
-                                            Contact With Us <i className="fa-light fa-arrow-right-long"></i>
-                                        </Link>
-                                    </div>
-                                    <div className="cta6-shape">
-                                        <img src="/assets/img/shape/cta6-shape.png" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shape-mockup" data-bottom="0%" data-right="0">
-                        <img src="/assets/img/normal/cta-img-6.jpg" alt="" />
-                    </div>
-                </div>
-            </div> */}
 
-            {/* Brand Section */}
-            {/* <div className="brand-sec space-bottom">
-                <div className="container th-container4">
-                    <p className="sec-note text-center mb-60">Trusted by 1600+ of the world's most popular companies</p>
-                    <Swiper
-                        modules={[Autoplay]}
-                        className="th-slider brandSlider1"
-                        loop={true}
-                        autoplay={{ delay: 2500, disableOnInteraction: false }}
-                        breakpoints={{
-                            0: { slidesPerView: 1 },
-                            576: { slidesPerView: 2 },
-                            768: { slidesPerView: 3 },
-                            992: { slidesPerView: 3 },
-                            1300: { slidesPerView: 6 },
-                            1400: { slidesPerView: 7 }
-                        }}
-                    >
-                        {[1, 2, 3, 4, 5, 6, 7, 1, 4, 3, 2, 1, 1, 1].map((num, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="brand-box">
-                                    <a href="#">
-                                        <img className="original" src={`/assets/img/brand/brand_1_${num}.svg`} alt="Brand Logo" />
-                                        <img className="gray" src={`/assets/img/brand/brand_1_${num}.svg`} alt="Brand Logo" />
-                                    </a>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-            </div> */}
 
             <Footer />
         </>
