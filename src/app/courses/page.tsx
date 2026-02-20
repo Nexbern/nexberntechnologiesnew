@@ -22,7 +22,8 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_1.jpg',
+        image: '/assets/img/courses/fullstack.jpg',
+        // image: 'https://picsum.photos/400/300',
         skills: ['HTML, CSS, JavaScript', 'React & Redux', 'Node.js & Express', 'MongoDB', 'REST APIs', 'Git & GitHub'],
         icon: 'fa-code'
     },
@@ -35,7 +36,7 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_2.jpg',
+        image: '/assets/img/courses/mobileapp.jpg',
         skills: ['React Native Basics', 'Flutter Development', 'Mobile UI/UX', 'API Integration', 'App Deployment'],
         icon: 'fa-mobile'
     },
@@ -48,7 +49,7 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_3.jpg',
+        image: '/assets/img/courses/ai-ml.jpg',
         skills: ['Python Programming', 'Machine Learning Algorithms', 'TensorFlow & Keras', 'Deep Learning', 'Neural Networks', 'Computer Vision'],
         icon: 'fa-brain'
     },
@@ -61,7 +62,7 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_4.jpg',
+        image: '/assets/img/courses/cloud.jpg',
         skills: ['AWS Services', 'Azure Fundamentals', 'Docker Containers', 'Kubernetes', 'CI/CD Pipelines', 'Infrastructure as Code'],
         icon: 'fa-cloud'
     },
@@ -74,7 +75,7 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_5.jpg',
+        image: '/assets/img/courses/seo.jpg',
         skills: ['SEO Fundamentals', 'Google Analytics', 'Social Media Marketing', 'Content Marketing', 'Email Marketing', 'PPC Advertising'],
         icon: 'fa-chart-line'
     },
@@ -87,7 +88,7 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_6.jpg',
+        image: '/assets/img/courses/ui-ux.jpg',
         skills: ['Design Principles', 'Figma Mastery', 'User Research', 'Wireframing', 'Prototyping', 'Design Systems'],
         icon: 'fa-palette'
     },
@@ -100,7 +101,7 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_7.jpg',
+        image: '/assets/img/courses/data-analytics.jpg',
         skills: ['Python for Data Science', 'Pandas & NumPy', 'Data Visualization', 'Statistical Analysis', 'Machine Learning', 'Big Data'],
         icon: 'fa-chart-pie'
     },
@@ -113,7 +114,7 @@ const coursesData = [
         level: 'Beginner to Intermediate',
         students: '30+',
         price: '₹2199',
-        image: 'course_8.jpg',
+        image: '/assets/img/courses/cyber.jpg',
         skills: ['Network Security', 'Ethical Hacking', 'Cryptography', 'Security Tools', 'Penetration Testing', 'Incident Response'],
         icon: 'fa-shield-alt'
     }
@@ -345,299 +346,613 @@ export default function Courses() {
             </div>
 
             {/* Hero Section */}
-            <section className="space overflow-hidden">
-                <div className="shape-mockup jump d-none d-xl-block" data-top="15%" data-right="3%">
-                    <img src="/assets/img/shape/ab-1-shape-1.png" alt="shape" />
-                </div>
-                <div className="shape-mockup jump d-none d-xl-block" data-bottom="15%" data-left="3%">
-                    <img src="/assets/img/shape/ab-1-shape-2.png" alt="shape" />
-                </div>
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-8 col-md-10">
-                            <div className="title-area text-center">
-                                <span className="sub-title">
-                                    <span className="squre-shape left me-3"></span>
-                                    Learn. Build. Earn.
-                                    <span className="squre-shape right ms-3"></span>
-                                </span>
-                                <h2 className="sec-title mb-20">
-                                    <span className="scroll-text-ani">Transform your future with comprehensive training programs</span>
-                                </h2>
-                                <p className="sec-text">
-                                    Combine learning with real-world project experience and start earning while you learn
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<section 
+    className="space overflow-hidden"
+    style={{
+        position: 'relative'
+    }}
+>
+    <div 
+        className="shape-mockup jump d-none d-xl-block" 
+        data-top="15%" 
+        data-right="3%"
+    >
+        <img 
+            src="/assets/img/shape/ab-1-shape-1.png" 
+            alt="shape"
+            style={{
+                opacity: '0.5'
+            }}
+        />
+    </div>
 
-            {/* Filter Section */}
-            <div className="container mb-50">
-                <div className="filter-menu-active text-center">
-                    <div className="course-filter-buttons">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
-                                onClick={() => setActiveFilter(category)}
-                                style={{
-                                    padding: '12px 30px',
-                                    margin: '5px',
-                                    border: activeFilter === category ? '2px solid #0B59DB' : '2px solid #e0e0e0',
-                                    background: activeFilter === category ? '#0B59DB' : '#fff',
-                                    color: activeFilter === category ? '#fff' : '#333',
-                                    borderRadius: '50px',
-                                    cursor: 'pointer',
-                                    fontSize: '15px',
-                                    fontWeight: '600',
-                                    transition: 'all 0.3s ease',
-                                    outline: 'none'
-                                }}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
+    <div 
+        className="shape-mockup jump d-none d-xl-block" 
+        data-bottom="15%" 
+        data-left="3%"
+    >
+        <img 
+            src="/assets/img/shape/ab-1-shape-2.png" 
+            alt="shape"
+            style={{
+                opacity: '0.5'
+            }}
+        />
+    </div>
+
+    <div className="container">
+        <div className="row justify-content-center">
+            <div className="col-lg-8 col-md-10">
+                <div 
+                    className="title-area text-center"
+                    style={{
+                        paddingBottom: '10px'
+                    }}
+                >
+
+                    {/* SUB TITLE */}
+                    <span 
+                        className="sub-title"
+                        style={{
+                            display: 'inline-block',
+                            padding: '6px 22px',
+                            borderRadius: '50px',
+                            background: 'rgba(11, 89, 219, 0.08)',
+                            color: '#0B59DB',
+                            fontWeight: '600',
+                            fontSize: '14px',
+                            letterSpacing: '0.5px'
+                        }}
+                    >
+                        <span className="squre-shape left me-3"></span>
+                        Learn. Build. Earn.
+                        <span className="squre-shape right ms-3"></span>
+                    </span>
+
+                    {/* TITLE */}
+                    <h2 
+                        className="sec-title mb-20"
+                        style={{
+                            fontSize: '42px',
+                            fontWeight: '800',
+                            lineHeight: '1.3',
+                            marginTop: '20px',
+                            color: '#0B1422'
+                        }}
+                    >
+                        <span className="scroll-text-ani">
+                            Transform your future with comprehensive training programs
+                        </span>
+                    </h2>
+
+                    {/* DESCRIPTION */}
+                    <p 
+                        className="sec-text"
+                        style={{
+                            fontSize: '17px',
+                            color: '#5f6c7b',
+                            lineHeight: '1.8',
+                            maxWidth: '680px',
+                            margin: '0 auto'
+                        }}
+                    >
+                        Combine learning with real-world project experience and start earning while you learn
+                    </p>
+
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+
+            {/* Filter Section */}
+<div className="container mb-50">
+    <div className="filter-menu-active text-center">
+        <div className="course-filter-buttons">
+            {categories.map((category) => (
+                <button
+                    key={category}
+                    className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
+                    onClick={() => setActiveFilter(category)}
+                    style={{
+                        padding: '12px 32px',
+                        margin: '8px',
+                        border: activeFilter === category
+                            ? '2px solid #0B59DB'
+                            : '2px solid #e0e0e0',
+                        background: activeFilter === category
+                            ? '#0B59DB'
+                            : '#fff',
+                        color: activeFilter === category
+                            ? '#fff'
+                            : '#333',
+                        borderRadius: '50px',
+                        cursor: 'pointer',
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        transition: 'all 0.3s ease',
+                        outline: 'none',
+                        boxShadow: activeFilter === category
+                            ? '0 8px 20px rgba(11, 89, 219, 0.25)'
+                            : '0 4px 12px rgba(0,0,0,0.05)',
+                        transform: activeFilter === category
+                            ? 'scale(1.05)'
+                            : 'scale(1)'
+                    }}
+                    onMouseEnter={(e) => {
+                        if (activeFilter !== category) {
+                            e.currentTarget.style.border = '2px solid #0B59DB';
+                            e.currentTarget.style.color = '#0B59DB';
+                            e.currentTarget.style.transform = 'translateY(-3px)';
+                            e.currentTarget.style.boxShadow =
+                                '0 8px 20px rgba(11, 89, 219, 0.15)';
+                        }
+                    }}
+                    onMouseLeave={(e) => {
+                        if (activeFilter !== category) {
+                            e.currentTarget.style.border = '2px solid #e0e0e0';
+                            e.currentTarget.style.color = '#333';
+                            e.currentTarget.style.transform = 'translateY(0px)';
+                            e.currentTarget.style.boxShadow =
+                                '0 4px 12px rgba(0,0,0,0.05)';
+                        }
+                    }}
+                >
+                    {category}
+                </button>
+            ))}
+        </div>
+    </div>
+</div>
 
             {/* Courses Grid */}
-            <section className="space">
-                <div className="container">
-                    <div className="row gy-4">
-                        {filteredCourses.map((course, index) => (
-                            <div key={course.id} className="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay={`${index * 0.1}s`}>
-                                <div className="course-card" style={{
-                                    background: '#fff',
-                                    borderRadius: '20px',
-                                    overflow: 'hidden',
-                                    boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
-                                    transition: 'all 0.3s ease',
-                                    height: '100%',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}>
-                                    <div className="course-img" style={{
-                                        position: 'relative',
-                                        height: '200px',
-                                        background: 'linear-gradient(135deg, #0d6efd 0%, #0d6efd 100%)',
+<section className="">
+    <div className="container">
+        <div className="row gy-4">
+            {filteredCourses.map((course, index) => (
+                <div
+                    key={course.id}
+                    className="col-md-6 col-lg-4 wow fadeInUp"
+                    data-wow-delay={`${index * 0.1}s`}
+                >
+                    <div
+  className="course-card"
+  style={{
+    background: '#fff',
+    borderRadius: '18px',
+    overflow: 'hidden',
+    boxShadow: '0 10px 30px rgba(11, 89, 219, 0.06)',
+    transition: 'all 0.35s ease',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    cursor: 'pointer',
+    border: '1px solid #f1f1f1'
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = 'translateY(-10px)';
+    e.currentTarget.style.boxShadow =
+      '0 25px 60px rgba(11, 89, 219, 0.15)';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow =
+      '0 10px 30px rgba(11, 89, 219, 0.06)';
+  }}
+>
+
+                        {/* IMAGE SECTION */}
+{/* IMAGE SECTION */}
+<div
+  style={{
+    position: 'relative',
+    height: '210px',
+    overflow: 'hidden'
+  }}
+>
+  <img
+    src={course.image}
+    alt={course.title}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      transition: 'transform 0.6s ease'
+    }}
+  />
+
+  {/* Gradient Overlay */}
+  <div
+    style={{
+      position: 'absolute',
+      inset: 0,
+      background:
+        'linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.05))'
+    }}
+  />
+
+  {/* Category Badge */}
+  <div
+    style={{
+      position: 'absolute',
+      top: '15px',
+      left: '15px',
+      background: '#0B59DB',
+      padding: '6px 14px',
+      borderRadius: '20px',
+      color: '#fff',
+      fontSize: '11px',
+      fontWeight: '600',
+      letterSpacing: '0.5px'
+    }}
+  >
+    {course.category}
+  </div>
+</div>
+
+
+
+                        {/* CONTENT */}
+                        <div
+                            className="course-content"
+                            style={{
+                                padding: '25px',
+                                flex: 1,
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}
+                        >
+                            <h3
+                                className="course-title"
+                                style={{
+                                    fontSize: '18px',
+                                    fontWeight: '700',
+                                    marginBottom: '10px',
+                                    color: '#111',
+                                    lineHeight: '1.4'
+                                }}
+                            >
+                                {course.title}
+                            </h3>
+
+                            <p
+                                style={{
+                                    color: '#666',
+                                    fontSize: '14px',
+                                    lineHeight: '1.6',
+                                    marginBottom: '20px'
+                                }}
+                            >
+                                {course.description}
+                            </p>
+
+                            {/* COURSE META */}
+                            <div style={{ marginBottom: '15px' }}>
+                                <div
+                                    style={{
                                         display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }}>
-                                        <i className={`fa-light ${course.icon}`} style={{
-                                            fontSize: '60px',
-                                            color: 'rgba(255,255,255,0.9)'
-                                        }}></i>
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: '15px',
-                                            right: '15px',
-                                            background: 'rgba(255,255,255,0.2)',
-                                            backdropFilter: 'blur(10px)',
-                                            padding: '8px 15px',
-                                            borderRadius: '20px',
-                                            color: '#fff',
-                                            fontSize: '13px',
-                                            fontWeight: '600'
-                                        }}>
-                                            {course.category}
-                                        </div>
-                                    </div>
-                                    <div className="course-content" style={{
-                                        padding: '25px',
-                                        flex: 1,
+                                        justifyContent: 'space-between',
+                                        marginBottom: '10px',
+                                        fontSize: '13px',
+                                        color: '#666'
+                                    }}
+                                >
+                                    <span>
+                                        <i
+                                            className="fa-regular fa-clock"
+                                            style={{
+                                                marginRight: '5px',
+                                                color: '#0B59DB'
+                                            }}
+                                        ></i>{' '}
+                                        {course.duration}
+                                    </span>
+                                    <span>
+                                        <i
+                                            className="fa-regular fa-user"
+                                            style={{
+                                                marginRight: '5px',
+                                                color: '#0B59DB'
+                                            }}
+                                        ></i>{' '}
+                                        {course.students}
+                                    </span>
+                                </div>
+
+                                <div
+                                    style={{
+                                        fontSize: '13px',
+                                        color: '#666',
+                                        marginBottom: '10px'
+                                    }}
+                                >
+                                    <i
+                                        className="fa-regular fa-signal"
+                                        style={{
+                                            marginRight: '5px',
+                                            color: '#0B59DB'
+                                        }}
+                                    ></i>{' '}
+                                    {course.level}
+                                </div>
+                            </div>
+
+                            {/* SKILLS */}
+                            <div
+                                style={{
+                                    marginBottom: '20px',
+                                    paddingTop: '15px',
+                                    borderTop: '1px solid #f0f0f0'
+                                }}
+                            >
+                                <p
+                                    style={{
+                                        fontSize: '12px',
+                                        fontWeight: '600',
+                                        color: '#333',
+                                        marginBottom: '10px'
+                                    }}
+                                >
+                                    What you'll learn:
+                                </p>
+
+                                <div
+                                    style={{
                                         display: 'flex',
-                                        flexDirection: 'column'
-                                    }}>
-                                        <h3 className="course-title" style={{
-                                            fontSize: '20px',
-                                            fontWeight: '700',
-                                            marginBottom: '12px',
-                                            color: '#0B1422'
-                                        }}>
-                                            {course.title}
-                                        </h3>
-                                        <p style={{
-                                            color: '#666',
-                                            fontSize: '14px',
-                                            lineHeight: '1.6',
-                                            marginBottom: '20px'
-                                        }}>
-                                            {course.description}
-                                        </p>
-
-                                        <div style={{ marginBottom: '15px' }}>
-                                            <div style={{
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                marginBottom: '10px',
-                                                fontSize: '13px',
-                                                color: '#666'
-                                            }}>
-                                                <span><i className="fa-regular fa-clock" style={{ marginRight: '5px', color: '#0B59DB' }}></i> {course.duration}</span>
-                                                <span><i className="fa-regular fa-user" style={{ marginRight: '5px', color: '#0B59DB' }}></i> {course.students}</span>
-                                            </div>
-                                            <div style={{
-                                                fontSize: '13px',
-                                                color: '#666',
-                                                marginBottom: '10px'
-                                            }}>
-                                                <i className="fa-regular fa-signal" style={{ marginRight: '5px', color: '#0B59DB' }}></i> {course.level}
-                                            </div>
-                                        </div>
-
-                                        <div style={{
-                                            marginBottom: '20px',
-                                            paddingTop: '15px',
-                                            borderTop: '1px solid #f0f0f0'
-                                        }}>
-                                            <p style={{
-                                                fontSize: '12px',
-                                                fontWeight: '600',
-                                                color: '#333',
-                                                marginBottom: '10px'
-                                            }}>
-                                                What you'll learn:
-                                            </p>
-                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
-                                                {course.skills.slice(0, 4).map((skill, idx) => (
-                                                    <span key={idx} style={{
-                                                        fontSize: '11px',
-                                                        background: '#f8f9fa',
-                                                        padding: '4px 10px',
-                                                        borderRadius: '12px',
-                                                        color: '#555'
-                                                    }}>
-                                                        {skill}
-                                                    </span>
-                                                ))}
-                                                {course.skills.length > 4 && (
-                                                    <span style={{
-                                                        fontSize: '11px',
-                                                        background: '#f8f9fa',
-                                                        padding: '4px 10px',
-                                                        borderRadius: '12px',
-                                                        color: '#555'
-                                                    }}>
-                                                        +{course.skills.length - 4} more
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        <div style={{
-                                            marginTop: 'auto',
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                            alignItems: 'center'
-                                        }}>
-                                            <div>
-                                                <span style={{
-                                                    fontSize: '12px',
-                                                    color: '#999',
-                                                    textDecoration: 'line-through',
-                                                    display: 'block'
-                                                }}>
-                                                    Price
-                                                </span>
-                                                <span style={{
-                                                    fontSize: '24px',
-                                                    fontWeight: '700',
-                                                    color: '#0B59DB'
-                                                }}>
-                                                    {course.price}
-                                                </span>
-                                            </div>
-                                            <button
-                                                onClick={() => handleEnrollClick(course.title)}
-                                                className="th-btn th-btn-sm th-radius"
+                                        flexWrap: 'wrap',
+                                        gap: '8px'
+                                    }}
+                                >
+                                    {course.skills
+                                        .slice(0, 4)
+                                        .map((skill, idx) => (
+                                            <span
+                                                key={idx}
                                                 style={{
-                                                    padding: '10px 20px',
-                                                    fontSize: '13px',
-                                                    border: 'none',
-                                                    cursor: 'pointer'
+                                                    background: '#eef3ff',
+                                                    padding: '6px 14px',
+                                                    borderRadius: '30px',
+                                                    color: '#0B59DB',
+                                                    fontWeight: '500',
+                                                    fontSize: '12px',
+                                                    transition:
+                                                        'all 0.3s ease',
+                                                    cursor: 'default'
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.background =
+                                                        '#0B59DB';
+                                                    e.currentTarget.style.color =
+                                                        '#fff';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.background =
+                                                        '#eef3ff';
+                                                    e.currentTarget.style.color =
+                                                        '#0B59DB';
                                                 }}
                                             >
-                                                Enroll Now
-                                            </button>
-                                        </div>
-                                    </div>
+                                                {skill}
+                                            </span>
+                                        ))}
+
+                                    {course.skills.length > 4 && (
+                                        <span
+                                            style={{
+                                                fontSize: '11px',
+                                                background: '#f8f9fa',
+                                                padding: '4px 10px',
+                                                borderRadius: '12px',
+                                                color: '#555'
+                                            }}
+                                        >
+                                            +{course.skills.length - 4} more
+                                        </span>
+                                    )}
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            {/* Features Section */}
-            <section className="bg-smoke overflow-hidden space">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-8 col-md-10">
-                            <div className="title-area text-center mb-50">
-                                <span className="sub-title">
-                                    <span className="squre-shape left me-3"></span>
-                                    Why Choose Us
-                                    <span className="squre-shape right ms-3"></span>
-                                </span>
-                                <h2 className="sec-title">
-                                    <span className="scroll-text-ani">What Makes Our Courses Different?</span>
-                                </h2>
-                            </div>
+                            {/* PRICE + BUTTON */}
+<div
+  style={{
+    marginTop: 'auto',
+    paddingTop: '15px',
+    borderTop: '1px solid #f1f1f1',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }}
+>
+  <span
+    style={{
+      fontSize: '20px',
+      fontWeight: '700',
+      color: '#0B59DB'
+    }}
+  >
+    {course.price}
+  </span>
+
+  <button
+    onClick={() => handleEnrollClick(course.title)}
+    style={{
+      padding: '8px 20px',
+      fontSize: '12px',
+      border: '1px solid #0B59DB',
+      background: 'transparent',
+      color: '#0B59DB',
+      borderRadius: '30px',
+      fontWeight: '600',
+      transition: 'all 0.3s ease'
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.background = '#0B59DB';
+      e.currentTarget.style.color = '#fff';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.background = 'transparent';
+      e.currentTarget.style.color = '#0B59DB';
+    }}
+  >
+    Enroll
+  </button>
+</div>
+
                         </div>
                     </div>
-                    <div className="row gy-4">
-                        {features.map((feature, index) => (
-                            <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`${index * 0.1}s`}>
-                                <div className="feature-card" style={{
-                                    background: '#fff',
-                                    padding: '35px 30px',
-                                    borderRadius: '15px',
-                                    textAlign: 'center',
-                                    boxShadow: '0 5px 20px rgba(0,0,0,0.05)',
-                                    transition: 'all 0.3s ease',
-                                    height: '100%'
-                                }}>
-                                    <div style={{
-                                        width: '70px',
-                                        height: '70px',
-                                        background: 'linear-gradient(135deg, #0d6efd 0%, #764ba2 100%)',
-                                        borderRadius: '15px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        margin: '0 auto 20px'
-                                    }}>
-                                        <i className={`fa-light ${feature.icon}`} style={{
-                                            fontSize: '32px',
-                                            color: '#fff'
-                                        }}></i>
-                                    </div>
-                                    <h4 style={{
-                                        fontSize: '20px',
-                                        fontWeight: '700',
-                                        marginBottom: '12px',
-                                        color: '#0B1422'
-                                    }}>
-                                        {feature.title}
-                                    </h4>
-                                    <p style={{
-                                        color: '#666',
-                                        fontSize: '14px',
-                                        lineHeight: '1.6',
-                                        marginBottom: 0
-                                    }}>
-                                        {feature.description}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+            {/* Features Section */}
+<section 
+    className="space overflow-hidden"
+    style={{
+        position: 'relative'
+    }}
+>
+    <div 
+        className="shape-mockup jump d-none d-xl-block" 
+        data-top="15%" 
+        data-right="3%"
+    >
+        <img 
+            src="/assets/img/shape/ab-1-shape-1.png" 
+            alt="shape"
+            style={{
+                opacity: '0.5'
+            }}
+        />
+    </div>
+
+    <div 
+        className="shape-mockup jump d-none d-xl-block" 
+        data-bottom="15%" 
+        data-left="3%"
+    >
+        <img 
+            src="/assets/img/shape/ab-1-shape-2.png" 
+            alt="shape"
+            style={{
+                opacity: '0.5'
+            }}
+        />
+    </div>
+    <div className="container">
+        <div className="row justify-content-center">
+            <div className="col-lg-8 col-md-10">
+                <div className="title-area text-center mb-50">
+                    <span className="sub-title"  style={{
+                            display: 'inline-block',
+                            padding: '6px 22px',
+                            borderRadius: '50px',
+                            background: 'rgba(11, 89, 219, 0.08)',
+                            color: '#0B59DB',
+                            fontWeight: '600',
+                            fontSize: '14px',
+                            letterSpacing: '0.5px'
+                        }}>
+                        <span className="squre-shape left me-3"></span>
+                        Why Choose Us
+                        <span className="squre-shape right ms-3"></span>
+                    </span>
+
+                    <h2 className="sec-title" style={{ lineHeight: '1.3' }}>
+                        <span className="scroll-text-ani">
+                            What Makes Our Courses Different?
+                        </span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div className="row gy-4">
+            {features.map((feature, index) => (
+                <div
+                    key={index}
+                    className="col-lg-4 col-md-6 wow fadeInUp"
+                    data-wow-delay={`${index * 0.1}s`}
+                >
+                    <div
+                        className="feature-card"
+                        style={{
+                            background: '#fff',
+                            padding: '35px 30px',
+                            borderRadius: '15px',
+                            textAlign: 'center',
+                            boxShadow: '0 5px 20px rgba(0,0,0,0.05)',
+                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            height: '100%',
+                            cursor: 'pointer'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-8px)';
+                            e.currentTarget.style.boxShadow =
+                                '0 15px 35px rgba(0,0,0,0.08)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow =
+                                '0 5px 20px rgba(0,0,0,0.05)';
+                        }}
+                    >
+                        {/* Icon */}
+                        <div
+                            style={{
+                                width: '70px',
+                                height: '70px',
+                                background:
+                                    'linear-gradient(135deg, #0d6efd 0%, #764ba2 100%)',
+                                borderRadius: '15px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                margin: '0 auto 20px',
+                                transition: 'transform 0.3s ease'
+                            }}
+                        >
+                            <i
+                                className={`fa-light ${feature.icon}`}
+                                style={{
+                                    fontSize: '32px',
+                                    color: '#fff'
+                                }}
+                            ></i>
+                        </div>
+
+                        {/* Title */}
+                        <h4
+                            style={{
+                                fontSize: '20px',
+                                fontWeight: '700',
+                                marginBottom: '12px',
+                                color: '#0B1422'
+                            }}
+                        >
+                            {feature.title}
+                        </h4>
+
+                        {/* Description */}
+                        <p
+                            style={{
+                                color: '#666',
+                                fontSize: '14px',
+                                lineHeight: '1.6',
+                                marginBottom: 0
+                            }}
+                        >
+                            {feature.description}
+                        </p>
                     </div>
                 </div>
-            </section>
+            ))}
+        </div>
+    </div>
+</section>
+
 
             {/* How It Works Section */}
             <section className="space overflow-hidden" style={{ backgroundImage: 'url(/assets/img/bg/process-4-1-bg.png)' }}>

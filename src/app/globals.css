@@ -177,3 +177,13 @@
   color: white !important;
   border-color: #2563eb;
 }
+
+.mobile-logo img {
+  height: 50px !important;
+  width: auto !important;
+}
+
+.header-logo img {
+  height: 40px !important;
+  width: auto !important;
+}

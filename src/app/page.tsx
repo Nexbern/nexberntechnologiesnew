@@ -856,6 +856,193 @@ export default function Home() {
 
       {/* Blog Section */}
 
+      {/* Call To Action Section */}
+{/* <section className="cta-area space" style={{ 
+  background: 'linear-gradient(135deg, #0b59db 0%, #062a66 100%)',
+  color: '#fff'
+}}>
+  <div className="container text-center">
+    <div className="row justify-content-center">
+      <div className="col-lg-8">
+        <h2 className="sec-title mb-20">
+          Ready to Transform Your Business with IT?
+        </h2>
+        <p className="mb-30">
+          Let Nexbern Technologies help you scale, secure, and grow with modern IT solutions.
+        </p>
+        <Link href="/contact" className="th-btn style7">
+          Get Started Now <i className="fa-light fa-arrow-right-long"></i>
+        </Link>
+      </div>
+    </div>
+  </div>
+</section> */}
+
+{/* Testimonials Section */}
+{/* <section className="space bg-light">
+  <div className="container">
+    <div className="title-area text-center mb-50">
+      <span className="sub-title text-anime-style-2">Client Feedback</span>
+      <h2 className="sec-title text-anime-style-3">
+        What Our Clients Say About Nexbern
+      </h2>
+    </div>
+
+    <div className="row gy-4">
+      {[
+        {
+          name: "Rahul Sharma",
+          role: "Startup Founder",
+          text: "Nexbern completely transformed our digital presence. Their team delivered on time and exceeded expectations."
+        },
+        {
+          name: "Priya Mehta",
+          role: "E-commerce Owner",
+          text: "Professional, reliable, and technically strong. Our website performance improved drastically."
+        },
+        {
+          name: "Amit Verma",
+          role: "Business Consultant",
+          text: "Their cloud consulting services helped us reduce operational costs significantly."
+        }
+      ].map((item, index) => (
+        <div className="col-lg-4 col-md-6 wow fadeInUp" key={index}>
+          <div style={{
+            background: "#fff",
+            padding: "40px",
+            borderRadius: "20px",
+            boxShadow: "0 15px 40px rgba(0,0,0,0.05)",
+            height: "100%"
+          }}>
+            <p style={{ fontStyle: "italic", marginBottom: "20px" }}>
+              “{item.text}”
+            </p>
+            <h5 style={{ marginBottom: "5px" }}>{item.name}</h5>
+            <span style={{ color: "#666", fontSize: "14px" }}>
+              {item.role}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> */}
+
+{/* Our Process Section */}
+{/* Our Process Section */}
+<section className="position-relative space bg-smoke overflow-hidden">
+  <div className="container">
+
+    <div className="title-area text-center mb-60">
+      <span className="sub-title text-anime-style-2">
+        Our Working Process
+      </span>
+      <h2 className="sec-title text-anime-style-3">
+        From Idea to Execution
+      </h2>
+      <p className="sec-text wow fadeInUp" data-wow-delay=".2s">
+        We follow a structured approach to deliver reliable and scalable IT solutions.
+      </p>
+    </div>
+
+    <div className="row gy-4 position-relative">
+
+      {/* Vertical Line */}
+      <div style={{
+        position: "absolute",
+        left: "50%",
+        top: "0",
+        width: "2px",
+        height: "100%",
+        background: "linear-gradient(to bottom, #0b59db, transparent)",
+        transform: "translateX(-50%)",
+        zIndex: 0
+      }} className="d-none d-lg-block"></div>
+
+      {[
+        {
+          number: "01",
+          title: "Discovery & Strategy",
+          text: "Understanding your goals, challenges, and defining the roadmap."
+        },
+        {
+          number: "02",
+          title: "Design & Development",
+          text: "Building scalable and secure solutions using modern technologies."
+        },
+        {
+          number: "03",
+          title: "Testing & Deployment",
+          text: "Ensuring high performance, security, and seamless launch."
+        },
+        {
+          number: "04",
+          title: "Support & Growth",
+          text: "Continuous monitoring, updates, and long-term optimization."
+        }
+      ].map((item, index) => (
+        <div
+          className={`col-lg-6 wow fadeInUp ${index % 2 === 0 ? 'text-lg-end pe-lg-5' : 'ps-lg-5'}`}
+          data-wow-delay={`${0.2 * (index + 1)}s`}
+          key={index}
+        >
+          <div style={{
+            background: "#fff",
+            padding: "40px",
+            borderRadius: "20px",
+            boxShadow: "0 15px 40px rgba(0,0,0,0.06)",
+            position: "relative",
+            zIndex: 1,
+            transition: "all 0.3s ease"
+          }}
+          className="process-card"
+          >
+
+            <div style={{
+              width: "60px",
+              height: "60px",
+              background: "rgba(11, 89, 219, 0.1)",
+              color: "#0b59db",
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: "700",
+              fontSize: "20px",
+              marginBottom: "20px",
+              marginLeft: index % 2 === 0 ? "auto" : "0"
+            }}>
+              {item.number}
+            </div>
+
+            <h4 className="box-title mb-15">
+              {item.title}
+            </h4>
+
+            <p className="sec-text mb-0">
+              {item.text}
+            </p>
+
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+
+  {/* Decorative Shapes */}
+  <div className="shape-mockup jump d-none d-xl-block" data-top="15%" data-right="-5%">
+    <img src="/assets/img/shape/ab-1-shape-1.png" alt="shape" style={{ opacity: 0.4 }} />
+  </div>
+
+  <div className="shape-mockup movingX d-none d-xl-block" data-bottom="10%" data-left="-5%">
+    <img src="/assets/img/shape/ab-1-shape-2.png" alt="shape" style={{ opacity: 0.4 }} />
+  </div>
+
+</section>
+
+
+
       <Footer />
 
       {/* Scroll to Top */}

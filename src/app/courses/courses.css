@@ -1,0 +1,118 @@
+/* ===============================
+   COURSE CARD UPGRADE
+================================= */
+
+.course-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(11, 89, 219, 0.15);
+}
+
+.course-img {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, #0B59DB 0%, #667eea 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-img i {
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.course-category {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.course-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #0B1422;
+}
+
+.course-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.course-meta {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.course-meta i {
+    color: #0B59DB;
+    margin-right: 5px;
+}
+
+.course-skills {
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.skill-badge {
+    font-size: 11px;
+    background: #f8f9fa;
+    padding: 5px 12px;
+    border-radius: 15px;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+    background: #0B59DB;
+    color: #fff;
+}
+
+.course-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0B59DB;
+}
+
+.course-btn {
+    padding: 10px 22px;
+    font-size: 13px;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(135deg, #0B59DB, #667eea);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.course-btn:hover {
+    transform: scale(1.05);
+}

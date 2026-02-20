@@ -1,57 +1,98 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const Header = () => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
-    useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.classList.add('th-body-visible');
-        } else {
-            document.body.classList.remove('th-body-visible');
-        }
-    }, [isMobileMenuOpen]);
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add("th-body-visible");
+    } else {
+      document.body.classList.remove("th-body-visible");
+    }
+  }, [isMobileMenuOpen]);
 
-    return (
-        <>
-            <div className={`th-menu-wrapper ${isMobileMenuOpen ? 'th-body-visible' : ''}`}>
-                <div className="th-menu-area text-center">
-                    <button className="th-menu-toggle" onClick={toggleMobileMenu}><i className="fal fa-times"></i></button>
-                    <div className="mobile-logo">
-                        <Link href="/"><img src="/assets/img/logo.png" alt="Nexbern" /></Link>
-                    </div>
-                    <div className="th-mobile-menu">
-                        <ul>
-                            <li>
-                                <Link href="/">Home</Link>
-                            </li>
-                            <li>
-                                <Link href="/about">About Us</Link>
-                            </li>
-                            <li>
-                                <Link href="/services">Our Services</Link>
-                            </li>
-                            <li>
-                                <Link href="/courses">Courses</Link>
-                            </li>
-                            <li>
-                                <Link href="/portfolio">Projects</Link>
-                            </li>
-                            <li>
-                                <Link href="/contact">Contact us</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+  return (
+    <>
+      <div
+        className={`th-menu-wrapper ${isMobileMenuOpen ? "th-body-visible" : ""}`}
+      >
+        <div className="th-menu-area text-center p-0">
+<button
+  className="th-menu-toggle"
+  onClick={toggleMobileMenu}
+  style={{
+    background: 'rgba(11, 89, 219, 0.08)',  // very light blue circle
+    border: 'none',
+    borderRadius: '50%',
+    width: '40px',
+    height: '40px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease'
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = 'rgba(11, 89, 219, 0.15)';
+    e.currentTarget.style.transform = 'scale(1.05)';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = 'rgba(11, 89, 219, 0.08)';
+    e.currentTarget.style.transform = 'scale(1)';
+  }}
+>
+  <i
+    className="fas fa-times"
+    style={{
+      fontSize: '18px',
+      color: '#0B59DB'
+    }}
+  ></i>
+</button>
+
+            <div className="mobile-logo flex justify-center items-center py-3 border-b border-gray-200">
+            <Link href="/">
+                <img
+  src="/assets/img/logo.png"
+  alt="Nexbern"
+  className="h-5 w-auto bg-red-500"
+/>
+
+            </Link>
             </div>
-            <header className="th-header header-layout1">
-                {/* <div className="header-top">
+          <div className="th-mobile-menu">
+            <ul>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/about">About Us</Link>
+              </li>
+              <li>
+                <Link href="/services">Our Services</Link>
+              </li>
+              <li>
+                <Link href="/courses">Courses</Link>
+              </li>
+              <li>
+                <Link href="/portfolio">Projects</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact us</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <header className="th-header header-layout1">
+        {/* <div className="header-top">
                 <div className="container th-container">
                     <div className="row justify-content-center justify-content-xl-between align-items-center">
                         <div className="col-auto d-none d-md-block">
@@ -94,62 +135,114 @@ const Header = () => {
                     </div>
                 </div>
             </div> */}
-                <div className="sticky-wrapper">
-                    <div className="menu-area" style={{ padding: '0 30px' }}>
-                        <div className="container th-container">
-                            <div className="row align-items-center justify-content-between">
-                                <div className="col-auto">
-                                    <div className="header-logo">
-                                        <Link href="/">
-                                            <img src="/assets/img/logo.png" alt="Nexbern" style={{ maxHeight: '60px', width: 'auto' }} />
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className="col-auto ms-auto">
-                                    <nav className="main-menu d-none d-xl-inline-block">
-                                        <ul style={{ display: 'flex', justifyContent: 'flex-end', margin: 0 }}>
-                                            <li>
-                                                <Link href="/" style={{ fontWeight: 'bold' }}>Home</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/about" style={{ fontWeight: 'bold' }}>About Us</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/services" style={{ fontWeight: 'bold' }}>Our Services</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/courses" style={{ fontWeight: 'bold' }}>Courses</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/portfolio" style={{ fontWeight: 'bold' }}>Projects</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/contact" style={{ fontWeight: 'bold' }}>Contact us</Link>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    <button type="button" className="th-menu-toggle d-block d-xl-none" onClick={toggleMobileMenu}>
-                                        <i className="far fa-bars"></i>
-                                    </button>
-                                </div>
-                                <div className="col-auto d-none d-xl-block">
-                                    <div className="header-button">
-                                        {/* <button type="button" className="icon-btn searchBoxToggler">
+        <div className="sticky-wrapper">
+          <div className="menu-area" style={{ padding: "0 30px" }}>
+            <div className="container th-container">
+              <div className="row align-items-center justify-content-between">
+                <div className="col-auto">
+                  <div className="header-logo">
+                    <Link href="/">
+                      <img
+                        src="/assets/img/logo.png"
+                        alt="Nexbern"
+                        style={{ maxHeight: "60px", width: "auto" }}
+                      />
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-auto ms-auto">
+                  <nav className="main-menu d-none d-xl-inline-block">
+                    <ul
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        margin: 0,
+                      }}
+                    >
+                      <li>
+                        <Link href="/" style={{ fontWeight: "bold" }}>
+                          Home
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/about" style={{ fontWeight: "bold" }}>
+                          About Us
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/services" style={{ fontWeight: "bold" }}>
+                          Our Services
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/courses" style={{ fontWeight: "bold" }}>
+                          Courses
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/portfolio" style={{ fontWeight: "bold" }}>
+                          Projects
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/contact" style={{ fontWeight: "bold" }}>
+                          Contact us
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
+                <button
+  type="button"
+  className="th-menu-toggle d-block d-xl-none"
+  onClick={toggleMobileMenu}
+  style={{
+    background: 'transparent',
+    border: 'none',
+    padding: '0',
+    boxShadow: 'none',
+    outline: 'none'
+  }}
+>
+  <i
+    className="far fa-bars"
+    style={{
+      fontSize: '26px',
+      color: '#0B59DB'
+    }}
+  ></i>
+</button>
+
+                </div>
+                <div className="col-auto d-none d-xl-block">
+                  <div className="header-button">
+                    {/* <button type="button" className="icon-btn searchBoxToggler">
                                         <img src="/assets/img/icon/search.svg" alt="icon" />
                                     </button> */}
-                                        <Link href="/contact" className="th-btn th-icon" style={{ fontWeight: 'bold' }}>
-                                            Get In Touch <i className="fa-light fa-arrow-right-long"></i>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="logo-bg bg-mask" style={{ maskImage: 'url(/assets/img/logo_bg_mask.png)', WebkitMaskImage: 'url(/assets/img/logo_bg_mask.png)', transform: 'scaleX(-1)' }}></div>
-                    </div>
+                    <Link
+                      href="/contact"
+                      className="th-btn th-icon"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Get In Touch{" "}
+                      <i className="fa-light fa-arrow-right-long"></i>
+                    </Link>
+                  </div>
                 </div>
-            </header>
-        </>
-    );
+              </div>
+            </div>
+            <div
+              className="logo-bg bg-mask"
+              style={{
+                maskImage: "url(/assets/img/logo_bg_mask.png)",
+                WebkitMaskImage: "url(/assets/img/logo_bg_mask.png)",
+                transform: "scaleX(-1)",
+              }}
+            ></div>
+          </div>
+        </div>
+      </header>
+    </>
+  );
 };
 
 export default Header;
